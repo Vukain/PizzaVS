@@ -23,14 +23,22 @@ const PizzaInput = (props) => {
     const calculateValue = () => {
         // console.log(pizzaSize, pizzaCount, pizzaPrice)
         let surface = 3.14 * ((pizzaSize / 2) ** 2);
-        let value = (pizzaCount * surface) / pizzaPrice
+        let value = (pizzaCount * surface) / pizzaPrice;
+
+
         setPizzaUnoData({ size: pizzaSize, count: pizzaCount, price: pizzaPrice, value: value })
     }
 
     useEffect(() => {
         let surface = 3.14 * ((pizzaSize / 2) ** 2);
         let value = (pizzaCount * surface) / pizzaPrice;
-        setPizzaUnoData({ size: pizzaSize, count: pizzaCount, price: pizzaPrice, value: value })
+
+        if (props.name === 'uno') {
+            setPizzaUnoData({ size: pizzaSize, count: pizzaCount, price: pizzaPrice, value: value });
+        } else {
+            setPizzaDueData({ size: pizzaSize, count: pizzaCount, price: pizzaPrice, value: value });
+        }
+
     }, [pizzaPrice, pizzaCount, pizzaSize])
 
     return (<>
@@ -40,7 +48,7 @@ const PizzaInput = (props) => {
             <label htmlFor="" onChange={({ target }) => { setPizzaCount(parseInt(target.value)) }}>Ilość: <input type="number" /></label>
             <label htmlFor="" onChange={({ target }) => { setPizzaPrice(parseInt(target.value)) }}>Łączna cena: <input type="number" /></label>
         </form>
-        <button onClick={() => { console.log(pizzaUnoData) }}>Loguj</button>
+        <button onClick={() => { console.log(pizzaData) }}>Loguj</button>
     </>);
 }
 

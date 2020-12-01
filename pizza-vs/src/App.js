@@ -8,6 +8,7 @@ function App() {
     <AppProvider>
       <div className="App">
         <PizzaInput name='uno' />
+        <PizzaInput name='due' />
         {/* <ShowResult /> */}
       </div>
     </AppProvider>

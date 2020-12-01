@@ -1,14 +1,16 @@
 import './App.sass';
-import PizzaInput from './components/PizzaInput';
+import PizzaInput from './components/PizzaInput/PizzaInput.jsx';
+import ShowResult from './components/ShowResult/ShowResult.jsx';
+import AppProvider from './AppContext'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <PizzaInput />
-        <PizzaInput />
-      </header>
-    </div>
+    <AppProvider>
+      <div className="App">
+        <PizzaInput name='uno' />
+        {/* <ShowResult /> */}
+      </div>
+    </AppProvider>
   );
 }
 

@@ -9,7 +9,7 @@ function App() {
       <div className="App">
         <PizzaInput name='uno' />
         <PizzaInput name='due' />
-        {/* <ShowResult /> */}
+        <ShowResult />
       </div>
     </AppProvider>
   );

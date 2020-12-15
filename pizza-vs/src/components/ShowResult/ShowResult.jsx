@@ -4,13 +4,13 @@ import { AppContext } from '../../AppContext';
 
 const ShowResult = (props) => {
 
-    const { calc, pizzaValue } = useContext(AppContext);
-
-    console.log(props.name)
+    const { pizzaUnoData, pizzaDueData } = useContext(AppContext);
 
     return (<>
-        <button onClick={() => { calc() }}>Dej</button>
-        <h2>Wynik: {pizzaValue.toFixed()}</h2>
+        <p></p>
+        {pizzaUnoData.value.toFixed(2)}
+        <p></p>
+        {pizzaDueData.value.toFixed(2)}
     </>);
 }
 

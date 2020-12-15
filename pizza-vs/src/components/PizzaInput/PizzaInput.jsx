@@ -20,23 +20,14 @@ const PizzaInput = (props) => {
     const [pizzaCount, setPizzaCount] = useState(pizzaData.count);
     const [pizzaPrice, setPizzaPrice] = useState(pizzaData.price);
 
-    const calculateValue = () => {
-        // console.log(pizzaSize, pizzaCount, pizzaPrice)
-        let surface = 3.14 * ((pizzaSize / 2) ** 2);
-        let value = (pizzaCount * surface) / pizzaPrice;
-
-
-        setPizzaUnoData({ size: pizzaSize, count: pizzaCount, price: pizzaPrice, value: value })
-    }
-
     useEffect(() => {
-        let surface = 3.14 * ((pizzaSize / 2) ** 2);
-        let value = (pizzaCount * surface) / pizzaPrice;
+        let surface = 3.14 * ((pizzaSize / 2) ** 2) * pizzaCount;
+        let value = surface / pizzaPrice;
 
         if (props.name === 'uno') {
-            setPizzaUnoData({ size: pizzaSize, count: pizzaCount, price: pizzaPrice, value: value });
+            setPizzaUnoData({ size: pizzaSize, count: pizzaCount, price: pizzaPrice, surface: surface, value: value });
         } else {
-            setPizzaDueData({ size: pizzaSize, count: pizzaCount, price: pizzaPrice, value: value });
+            setPizzaDueData({ size: pizzaSize, count: pizzaCount, price: pizzaPrice, surface: surface, value: value });
         }
 
     }, [pizzaPrice, pizzaCount, pizzaSize])
@@ -44,9 +35,9 @@ const PizzaInput = (props) => {
     return (<>
         <h2>Pizza {props.name} </h2>
         <form action="">
-            <label htmlFor="" onChange={({ target }) => { setPizzaSize(parseInt(target.value)) }}>Rozmiar: <input type="number" /></label>
-            <label htmlFor="" onChange={({ target }) => { setPizzaCount(parseInt(target.value)) }}>Ilość: <input type="number" /></label>
-            <label htmlFor="" onChange={({ target }) => { setPizzaPrice(parseInt(target.value)) }}>Łączna cena: <input type="number" /></label>
+            <label htmlFor="">Rozmiar: <input type="number" onChange={({ target }) => { setPizzaSize(parseInt(target.value)) }} /></label>
+            <label htmlFor="">Ilość: <input type="number" onChange={({ target }) => { setPizzaCount(parseInt(target.value)) }} value={pizzaCount} /></label>
+            <label htmlFor="">Łączna cena: <input type="number" onChange={({ target }) => { setPizzaPrice(parseInt(target.value)) }} /></label>
         </form>
         <button onClick={() => { console.log(pizzaData) }}>Loguj</button>
     </>);

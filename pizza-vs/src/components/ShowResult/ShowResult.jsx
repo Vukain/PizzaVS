@@ -7,9 +7,9 @@ const ShowResult = (props) => {
     const { pizzaUnoData, pizzaDueData } = useContext(AppContext);
 
     return (<>
-        <p></p>
+        <p>Wartośc pizzy 1: </p>
         {pizzaUnoData.value.toFixed(2)}
-        <p></p>
+        <p>Wartośc pizzy 2: </p>
         {pizzaDueData.value.toFixed(2)}
     </>);
 }

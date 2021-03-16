@@ -33,8 +33,11 @@ const Pizza = () => {
             .fromTo(rucola, { scale: 1.3, transformOrigin: 'center' }, { stagger: 0.1, duration: 1, scale: 1, autoAlpha: 1 })
             .fromTo(tomatos, { scale: 1.3, transformOrigin: 'center' }, { stagger: 0.1, duration: 1, scale: 1, autoAlpha: 1 })
             .fromTo(olives, { scale: 1.3, transformOrigin: 'center' }, { stagger: 0.1, duration: 0.6, scale: 1, autoAlpha: 1 })
-            .fromTo(elements, {}, { ease: "elastic.out(0.5, 0.4)", duration: 2, y: "+=100vh" })
-            .fromTo(elements, {}, { ease: "elastic.out(0.5, 0.4)", duration: 2, y: "-=100vh" })
+            // .fromTo(elements, { transformOrigin: '140vw 40vh' }, { ease: "elastic.out(0.5, 0.4)", duration: 3, transform: 'rotateZ(90deg)' })
+            // // .to(elements, { ease: "elastic.out(0.5, 0.4)", duration: 3, transform: 'rotateZ(0deg)' })
+            .fromTo(elements, { transformOrigin: 'center' }, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-50deg)' })
+            .fromTo(elements, { transformOrigin: 'center' }, { ease: "elastic.out(0.8, 0.3)", duration: 2, delay: 1, y: "-=100vh", transform: 'rotateZ(50deg)' })
+            .fromTo(elements, { transformOrigin: 'center' }, { ease: "elastic.out(0.8, 0.3)", duration: 2, transform: 'rotateZ(0deg)' })
 
     }, []);
 

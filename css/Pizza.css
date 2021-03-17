@@ -1,18 +1,1 @@
-.rucola {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 80vh;
-  height: 80vh;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.rucola svg {
-  top: 0;
-  left: 0;
-  overflow: visible;
-  position: absolute;
-  width: 100%;
-}
-/*# sourceMappingURL=Pizza.css.map */
+/* No CSS *//*# sourceMappingURL=Pizza.css.map */

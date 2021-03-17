@@ -3,7 +3,7 @@ import PizzaInput from '../PizzaInput/PizzaInput.jsx';
 import gsap from 'gsap';
 
 import './Plate.sass';
-import { ReactComponent as PlateImg } from '../../media/plate.svg';
+import { ReactComponent as PlateImg } from '../../media/plate2.svg';
 
 const Plate = () => {
 
@@ -43,12 +43,7 @@ const Plate = () => {
     // }, []);
 
     return (
-        <div className='plate'>
-
-            <PlateImg />
-            <PizzaInput classer='unos' name='uno' />
-            <PizzaInput classer='dos' name='due' />
-        </div>
+        <PlateImg className='plate' />
     );
 }
 

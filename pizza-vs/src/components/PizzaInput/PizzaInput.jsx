@@ -22,7 +22,7 @@ const PizzaInput = (props) => {
 
     return (
         <div className={props.classer}>
-            <h2>Pizza {props.name} </h2>
+            <h2>PIZZA {props.name.toUpperCase()} </h2>
             <form action="">
                 <label htmlFor="">Rozmiar: <input type="number" onChange={({ target }) => { setPizzaSize(parseInt(target.value)) }} /></label>
                 <label htmlFor="">Ilość: <input type="number" onChange={({ target }) => { setPizzaCount(parseInt(target.value)) }} value={pizzaCount} /></label>

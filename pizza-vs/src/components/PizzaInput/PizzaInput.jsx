@@ -13,8 +13,8 @@ const PizzaInput = (props) => {
     const [pizzaPrice, setPizzaPrice] = useState(getPizzaData.price);
 
     useEffect(() => {
-        let surface = 3.14 * ((pizzaSize / 2) ** 2);
-        let value = (pizzaCount * surface) / pizzaPrice;
+        let surface = 3.14 * ((pizzaSize / 2) ** 2) * pizzaCount;
+        let value = surface / pizzaPrice;
 
         setPizzaData({ size: pizzaSize, count: pizzaCount, price: pizzaPrice, value: value });
     }

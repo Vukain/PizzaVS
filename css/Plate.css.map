@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAOA,AAAA,KAAK,CAAC;EACF,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,GAAG;EACR,IAAI,EAAE,GAAG;EACT,SAAS,EAAE,gBAAgB;CAAG;;AAElC,AAAA,IAAI,CAAC;EACD,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,GAAG;EACR,IAAI,EAAE,GAAG;EACT,SAAS,EAAE,gBAAgB;CAAG",
+    "sources": [
+        "../pizza-vs/src/components/Plate/Plate.sass"
+    ],
+    "names": [],
+    "file": "Plate.css"
+}

@@ -20,16 +20,17 @@ const PizzaInput = (props) => {
     }
         , [pizzaPrice, pizzaCount, pizzaSize])
 
-    return (<>
-        <h2>Pizza {props.name} </h2>
-        <form action="">
-            <label htmlFor="" onChange={({ target }) => { setPizzaSize(parseInt(target.value)) }}>Rozmiar: <input type="number" /></label>
-            <label htmlFor="" onChange={({ target }) => { setPizzaCount(parseInt(target.value)) }}>Ilość: <input type="number" value={pizzaCount} /></label>
-            <label htmlFor="" onChange={({ target }) => { setPizzaPrice(parseInt(target.value)) }}>Łączna cena: <input type="number" /></label>
-        </form>
-        <button onClick={() => { console.log(pizzaData) }}>Loguj</button>
-        {getPizzaData.value}
-    </>);
+    return (
+        <div className={props.classer}>
+            <h2>PIZZA {props.name.toUpperCase()} </h2>
+            <form action="">
+                <label htmlFor="">Rozmiar: <input type="number" onChange={({ target }) => { setPizzaSize(parseInt(target.value)) }} /></label>
+                <label htmlFor="">Ilość: <input type="number" onChange={({ target }) => { setPizzaCount(parseInt(target.value)) }} value={pizzaCount} /></label>
+                <label htmlFor="">Łączna cena: <input type="number" onChange={({ target }) => { setPizzaPrice(parseInt(target.value)) }} /></label>
+            </form>
+            {/* <button onClick={() => { console.log(pizzaData) }}>Loguj</button> */}
+            <p>Wartośc: {getPizzaData.value.toFixed(2)}</p>
+        </div>);
 }
 
 // const PizzaInput = (props) => {

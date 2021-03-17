@@ -29,7 +29,7 @@ const PizzaInput = (props) => {
                 <label htmlFor="">Łączna cena: <input type="number" onChange={({ target }) => { setPizzaPrice(parseInt(target.value)) }} /></label>
             </form>
             {/* <button onClick={() => { console.log(pizzaData) }}>Loguj</button> */}
-            <p>Wartośc: {getPizzaData.value}</p>
+            <p>Wartośc: {getPizzaData.value.toFixed(2)}</p>
         </div>);
 }
 

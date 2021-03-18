@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/PizzaVS/static/css/main.5c87ee46.chunk.css",
-    "main.js": "/PizzaVS/static/js/main.1ebd9dc7.chunk.js",
-    "main.js.map": "/PizzaVS/static/js/main.1ebd9dc7.chunk.js.map",
+    "main.js": "/PizzaVS/static/js/main.9ff57657.chunk.js",
+    "main.js.map": "/PizzaVS/static/js/main.9ff57657.chunk.js.map",
     "runtime-main.js": "/PizzaVS/static/js/runtime-main.917e8984.js",
     "runtime-main.js.map": "/PizzaVS/static/js/runtime-main.917e8984.js.map",
     "static/js/2.5910957b.chunk.js": "/PizzaVS/static/js/2.5910957b.chunk.js",
@@ -12,13 +12,13 @@
     "index.html": "/PizzaVS/index.html",
     "static/css/main.5c87ee46.chunk.css.map": "/PizzaVS/static/css/main.5c87ee46.chunk.css.map",
     "static/js/2.5910957b.chunk.js.LICENSE.txt": "/PizzaVS/static/js/2.5910957b.chunk.js.LICENSE.txt",
-    "static/media/pizza.7f820d12.svg": "/PizzaVS/static/media/pizza.7f820d12.svg",
-    "static/media/plate2.0ec92862.svg": "/PizzaVS/static/media/plate2.0ec92862.svg"
+    "static/media/broken.c8926a57.svg": "/PizzaVS/static/media/broken.c8926a57.svg",
+    "static/media/pizza.7f820d12.svg": "/PizzaVS/static/media/pizza.7f820d12.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.917e8984.js",
     "static/js/2.5910957b.chunk.js",
     "static/css/main.5c87ee46.chunk.css",
-    "static/js/main.1ebd9dc7.chunk.js"
+    "static/js/main.9ff57657.chunk.js"
   ]
 }

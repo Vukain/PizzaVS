@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
 import './Pizza.sass';
-import { ReactComponent as PizzaImg } from '../../media/pizza.svg';
+import { ReactComponent as PizzaImg } from '../../media/pizzas.svg';
 
 const Pizza = () => {
 

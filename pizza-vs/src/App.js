@@ -24,20 +24,22 @@ function App() {
     // const [elementsSlider] = sliderWrapper.current.children;
 
     const pl = document.querySelector('.plater');
-
     const pz = document.querySelector('.pizza');
+    const pi = document.querySelector('.pizzer');
+
     const dough = elementsPizza.getElementById('pizzas_svg__buildDough');
     const sauce = elementsPizza.getElementById('pizzas_svg__buildSauce');
     const cheese = elementsPizza.getElementById('pizzas_svg__buildCheese');
 
     const parma = document.getElementById('pizzas_svg__parma');
     const formaggi = document.getElementById('pizzas_svg__formaggi');
+    const mare = document.getElementById('pizzas_svg__mare');
+    const peppe = document.getElementById('pizzas_svg__pepperoni');
 
     const prosciuttos = elementsPizza.querySelectorAll('#pizzas_svg__buildProsciuttoA, [data-name= "buildProsciuttoA"], #pizzas_svg__buildProsciuttoB, [data-name= "buildProsciuttoB"]');
     const tomatos = elementsPizza.querySelectorAll('#pizzas_svg__buildTomatoSmall, [data-name= "buildTomatoSmall"]');
     const rucola = elementsPizza.querySelectorAll('#pizzas_svg__buildRucolaA, [data-name= "buildRucolaA"], #pizzas_svg__buildRucolaB, [data-name= "buildRucolaB"], #pizzas_svg__buildRucolaC, [data-name= "buildRucolaC"]');
     const olives = elementsPizza.querySelectorAll('#pizzas_svg__buildBlackOliveA, [data-name= "buildBlackOliveA"], #pizzas_svg__buildBlackOliveB, [data-name= "buildBlackOliveB"] ');
-
 
     const shard00 = elementsPlate.getElementById('broken_svg__shard00');
     const shard01 = elementsPlate.getElementById('broken_svg__shard01');
@@ -56,7 +58,7 @@ function App() {
     const vsShard02 = elementsPlate.getElementById('broken_svg__vsShard02');
     const vsShard03 = elementsPlate.getElementById('broken_svg__vsShard03');
 
-    gsap.set([dough, sauce, cheese, prosciuttos, tomatos, rucola, olives, formaggi], { autoAlpha: 0 });
+    gsap.set([dough, sauce, cheese, prosciuttos, tomatos, rucola, olives, formaggi, mare, peppe], { autoAlpha: 0 });
     gsap.set('svg', { visibility: "visible", transformOrigin: 'center' });
     // gsap.set([formaggi], { autoAlpha: 1, y: "-=200vh" });
 
@@ -70,13 +72,23 @@ function App() {
       .fromTo(rucola, { scale: 1.3, transformOrigin: 'center' }, { stagger: 0.1, duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(tomatos, { scale: 1.3, transformOrigin: 'center' }, { stagger: 0.1, duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(olives, { scale: 1.3, transformOrigin: 'center' }, { stagger: 0.1, duration: 0.6, scale: 1, autoAlpha: 1 })
+      
       .fromTo(pz, { transformOrigin: 'center' }, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
       .to(parma, { autoAlpha: 0 })
       .to(formaggi, { autoAlpha: 1 })
-      // .fromTo(formaggi, { transformOrigin: 'center' }, { ease: "elastic.out(0.8, 0.3)", duration: 2, y: "+=100vh", transform: 'rotateZ(-80deg)' })
-      // .fromTo(formaggi, { transformOrigin: 'center' }, { ease: "elastic.in(0.8, 0.3)", duration: 1.5, delay: 2, y: "-=100vh", transform: 'rotateZ(0deg)' })
-      .fromTo(pz, { transformOrigin: 'center' }, { ease: "elastic.out(0.8, 0.3)", duration: 2, delay: 0.4, y: "-=100vh", transform: 'rotateZ(0deg)' })
-      .fromTo([pz, pl], { transformOrigin: 'center' }, { ease: "expo.inOut", duration: 2, delay: 1, x: "+=100vh" })
+      .fromTo(pz, { transformOrigin: 'center' }, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
+
+      .fromTo(pz, { transformOrigin: 'center' }, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
+      .to(formaggi, { autoAlpha: 0 })
+      .to(mare, { autoAlpha: 1 })
+      .fromTo(pz, { transformOrigin: 'center' }, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
+
+      .fromTo(pz, { transformOrigin: 'center' }, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
+      .to(mare, { autoAlpha: 0 })
+      .to(peppe, { autoAlpha: 1 })
+      .fromTo(pz, { transformOrigin: 'center' }, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
+
+      .fromTo([pi, pl], { transformOrigin: 'center' }, { ease: "expo.inOut", duration: 2, delay: 1, x: "+=100vh" })
       .to([pl], { duration: 1, delay: -0.6, scale: 1.2 })
       .to([pl], { ease: "bounce.out", duration: 1, scale: 1 })
       .to(shard06, { duration: 0.3, delay: -0.3, x: '+=10vw' })

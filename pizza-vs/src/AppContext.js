@@ -12,9 +12,7 @@ const AppProvider = ({ children }) => {
         due: { getPizzaData: pizzaDueData, setPizzaData: setPizzaDueData }
     }
 
-    return (<AppContext.Provider value={
-        pizzaData
-    }>
+    return (<AppContext.Provider value={pizzaData}>
         {children}
     </AppContext.Provider>);
 }

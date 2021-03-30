@@ -1,24 +1,36 @@
-label
-    display: block
+.pizza_input
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
 
-form
-    margin: 10px auto
+    @media(orientation: portrait)
+        visibility: hidden
 
-h2
-    color: rgb(61, 186, 204)
+    &--unos
+        top: 10%
 
-input
-    width: 100%
-    margin-left: auto
-    margin-right: auto
-    margin-bottom: 16px
-    padding: 4px
-    font-size: 14px
-    border: 2px solid rgb(227, 224, 224)
-    transition: .2s
-    color: #292929
-    border-radius: 10px
-    outline: none
+    &--dos
+        top: 50%
 
-input:focus
-    border: 2px solid rgb(61, 186, 204)
+    &__title
+        color: rgb(61, 186, 204)
+
+    &__form
+        margin: 10px auto
+
+    &__label
+        display: block
+
+    &__input
+        width: 100%
+        margin: 0 auto 16px auto
+        padding: 4px
+        transition: .2s
+        font-size: 14px
+        color: #292929
+        border: 2px solid rgb(227, 224, 224)
+        border-radius: 10px
+        outline: none
+
+        &:focus
+            border: 2px solid rgb(61, 186, 204)

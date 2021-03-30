@@ -17,6 +17,8 @@ function App() {
 
   useEffect(() => {
 
+    console.log(window.matchMedia('(orientation: landscape)'))
+
     const [elementsPizza] = pizzaWrapper.current.children;
     const [elementsPlate] = plateWrapper.current.children;
     // const [elementsSlider] = sliderWrapper.current.children;
@@ -76,38 +78,76 @@ function App() {
       .fromTo(tomatos, { scale: 1.3 }, { stagger: 0.1, duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(olives, { scale: 1.3 }, { stagger: 0.1, duration: 0.6, scale: 1, autoAlpha: 1 })
 
-      .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
-      .to(parma, { autoAlpha: 0 })
-      .to(formaggi, { autoAlpha: 1 })
-      .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
 
-      .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
-      .to(formaggi, { autoAlpha: 0 })
-      .to(mare, { autoAlpha: 1 })
-      .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
+    if (window.matchMedia('(orientation: landscape)').matches) {
+      tl
+        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
+        .to(parma, { autoAlpha: 0 })
+        .to(formaggi, { autoAlpha: 1 })
+        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
 
-      .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
-      .to(mare, { autoAlpha: 0 })
-      .to(peppe, { autoAlpha: 1 })
-      .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
+        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
+        .to(formaggi, { autoAlpha: 0 })
+        .to(mare, { autoAlpha: 1 })
+        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
 
-      .fromTo([pizzaWrap, plateWrap], {}, { ease: "expo.inOut", duration: 2, delay: 1, x: "+=100vh" })
-      .to(plateWrap, { duration: 1, delay: -0.6, scale: 1.2 })
-      .to(plateWrap, { ease: "bounce.out", duration: 1, scale: 1 })
-      .to(shard06, { duration: 0.3, delay: -0.3, x: '+=10vw' })
-      .to(shard08, { duration: 0.3, delay: -0.3, x: '+=12vw', y: '-=4vw' })
-      .to(shard09, { duration: 0.3, delay: -0.3, x: '+=6vw', y: '-=3vw' })
-      .to(shard05, { duration: 0.3, delay: -0.3, x: '+=7vw', y: '+=2vw' })
-      .to(shard04, { duration: 0.3, delay: -0.3, x: '+=2vw', y: '+=4vw', transform: 'rotateZ(-2deg)' })
-      .to(shard02, { duration: 0.3, delay: -0.3, x: '+=14vw', y: '+=8vw' })
-      .to(shard01, { duration: 0.3, delay: -0.3, x: '+=10vw', y: '+=10vw', transform: 'rotateZ(4deg)' })
-      .to(shard03, { duration: 0.3, delay: -0.3, x: '+=10vw', y: '+=4vw' })
-      .to(shard07, { duration: 0.3, delay: -0.3, x: '-=2vw', y: '+=2vw' })
-      .to(shard00, { duration: 0.3, delay: -0.3, x: '+=2vw', y: '+=7vw', transform: 'rotateZ(2deg)' })
-      .to(vsShard00, { duration: 0.3, delay: -0.3, x: '+=3vw', y: '-=6vw' })
-      .to(vsShard01, { duration: 0.3, delay: -0.3, x: '+=1vw', y: '-=6vw' })
-      .to(vsShard02, { duration: 0.3, delay: -0.3, x: '+=3vw', y: '-=8vw' })
-      .to(vsShard03, { duration: 0.3, delay: -0.3, x: '-=1vw', y: '-=7vw' })
+        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
+        .to(mare, { autoAlpha: 0 })
+        .to(peppe, { autoAlpha: 1 })
+        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
+
+        .fromTo([pizzaWrap, plateWrap], {}, { ease: "expo.inOut", duration: 2, delay: 1, x: "+=100vh" })
+        .to(plateWrap, { duration: 1, delay: -0.6, scale: 1.2 })
+        .to(plateWrap, { ease: "bounce.out", duration: 1, scale: 1 })
+        .to(shard06, { duration: 0.3, delay: -0.3, x: '+=10vw' })
+        .to(shard08, { duration: 0.3, delay: -0.3, x: '+=12vw', y: '-=4vw' })
+        .to(shard09, { duration: 0.3, delay: -0.3, x: '+=6vw', y: '-=3vw' })
+        .to(shard05, { duration: 0.3, delay: -0.3, x: '+=7vw', y: '+=2vw' })
+        .to(shard04, { duration: 0.3, delay: -0.3, x: '+=2vw', y: '+=4vw', transform: 'rotateZ(-2deg)' })
+        .to(shard02, { duration: 0.3, delay: -0.3, x: '+=14vw', y: '+=8vw' })
+        .to(shard01, { duration: 0.3, delay: -0.3, x: '+=10vw', y: '+=10vw', transform: 'rotateZ(4deg)' })
+        .to(shard03, { duration: 0.3, delay: -0.3, x: '+=10vw', y: '+=4vw' })
+        .to(shard07, { duration: 0.3, delay: -0.3, x: '-=2vw', y: '+=2vw' })
+        .to(shard00, { duration: 0.3, delay: -0.3, x: '+=2vw', y: '+=7vw', transform: 'rotateZ(2deg)' })
+        .to(vsShard00, { duration: 0.3, delay: -0.3, x: '+=3vw', y: '-=6vw' })
+        .to(vsShard01, { duration: 0.3, delay: -0.3, x: '+=1vw', y: '-=6vw' })
+        .to(vsShard02, { duration: 0.3, delay: -0.3, x: '+=3vw', y: '-=8vw' })
+        .to(vsShard03, { duration: 0.3, delay: -0.3, x: '-=1vw', y: '-=7vw' })
+    } else {
+      tl
+        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, x: "+=100vw", transform: 'rotateZ(-80deg)' })
+        .to(parma, { autoAlpha: 0 })
+        .to(formaggi, { autoAlpha: 1 })
+        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, x: "-=100vw", transform: 'rotateZ(0deg)' })
+
+        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, x: "+=100vw", transform: 'rotateZ(-80deg)' })
+        .to(formaggi, { autoAlpha: 0 })
+        .to(mare, { autoAlpha: 1 })
+        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, x: "-=100vw", transform: 'rotateZ(0deg)' })
+
+        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, x: "+=100vw", transform: 'rotateZ(-80deg)' })
+        .to(mare, { autoAlpha: 0 })
+        .to(peppe, { autoAlpha: 1 })
+        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, x: "-=100vw", transform: 'rotateZ(0deg)' })
+
+        .fromTo([pizzaWrap, plateWrap], {}, { ease: "expo.inOut", duration: 2, delay: 1, y: "+=100vw" })
+        .to(plateWrap, { duration: 1, delay: -0.6, scale: 1.2 })
+        .to(plateWrap, { ease: "bounce.out", duration: 1, scale: 1 })
+        .to(shard06, { duration: 0.3, delay: -0.3, x: '+=20vw' })
+        .to(shard08, { duration: 0.3, delay: -0.3, x: '+=24vw', y: '-=8vw' })
+        .to(shard09, { duration: 0.3, delay: -0.3, x: '+=12vw', y: '-=6vw' })
+        .to(shard05, { duration: 0.3, delay: -0.3, x: '+=14vw', y: '+=4vw' })
+        .to(shard04, { duration: 0.3, delay: -0.3, x: '+=4vw', y: '+=8vw', transform: 'rotateZ(-2deg)' })
+        .to(shard02, { duration: 0.3, delay: -0.3, x: '+=28vw', y: '+=16vw' })
+        .to(shard01, { duration: 0.3, delay: -0.3, x: '+=20vw', y: '+=20vw', transform: 'rotateZ(4deg)' })
+        .to(shard03, { duration: 0.3, delay: -0.3, x: '+=20vw', y: '+=8vw' })
+        .to(shard07, { duration: 0.3, delay: -0.3, x: '-=4vw', y: '+=4vw' })
+        .to(shard00, { duration: 0.3, delay: -0.3, x: '+=4vw', y: '+=14vw', transform: 'rotateZ(2deg)' })
+        .to(vsShard00, { duration: 0.3, delay: -0.3, x: '+=6vw', y: '-=12vw' })
+        .to(vsShard01, { duration: 0.3, delay: -0.3, x: '+=2vw', y: '-=12vw' })
+        .to(vsShard02, { duration: 0.3, delay: -0.3, x: '+=6vw', y: '-=16vw' })
+        .to(vsShard03, { duration: 0.3, delay: -0.3, x: '-=2vw', y: '-=14vw' })
+    }
 
   }, []);
 

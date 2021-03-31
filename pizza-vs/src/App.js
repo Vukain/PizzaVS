@@ -166,7 +166,7 @@ function App() {
         .to(shard07, { duration: 0.3, delay: -0.3, x: '-=6vw', y: '+=13vw' })
         .to(shard00, { duration: 0.3, delay: -0.3, x: '+=6vw', y: '+=26vw', transform: 'rotateZ(2deg)' })
         .to(vsShard00, { duration: 0.3, delay: -0.3, x: '+=12w', y: '-=34vw' })
-        .to(vsShard01, { duration: 0.3, delay: -0.3, x: '+=3vw', y: '-=29vw' })
+        .to(vsShard01, { duration: 0.3, delay: -0.3, x: '+=3vw', y: '-=33vw' })
         .to(vsShard02, { duration: 0.3, delay: -0.3, x: '+=9vw', y: '-=46vw' })
         .to(vsShard03, { duration: 0.3, delay: -0.3, x: '-=3vw', y: '-=42vw' })
     }

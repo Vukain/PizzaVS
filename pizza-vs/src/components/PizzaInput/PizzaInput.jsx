@@ -26,7 +26,7 @@ const PizzaInput = (props) => {
         <div className={`pizza_input pizza_input--${props.classer}`}>
             <h2 className="pizza_input__title">PIZZA {props.name.toUpperCase()} </h2>
             <form className="pizza_input__form" action="">
-                <label className="pizza_input__label" htmlFor="">Rozmiar: <input className="pizza_input__input" type="number" onChange={({ target }) => { setPizzaSize(parseInt(target.value)) }} /></label>
+                <label className="pizza_input__label" htmlFor="">Rozmiar: <input placeholder='DIAMETER' className="pizza_input__input" type="number" onChange={({ target }) => { setPizzaSize(parseInt(target.value)) }} /></label>
                 <label className="pizza_input__label" htmlFor="">Ilość: <input className="pizza_input__input" type="number" onChange={({ target }) => { setPizzaCount(parseInt(target.value)) }} value={pizzaCount} /></label>
                 <label className="pizza_input__label" htmlFor="">Łączna cena: <input className="pizza_input__input" type="number" onChange={({ target }) => { setPizzaPrice(parseInt(target.value)) }} /></label>
             </form>

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 import './App.sass';
@@ -8,16 +8,20 @@ import PizzaInput from './components/PizzaInput/PizzaInput.jsx';
 import ShowResult from './components/ShowResult/ShowResult.jsx';
 import Pizza from './components/Pizza/Pizza';
 import Plate from './components/Plate/Plate';
+import AnimationSkip from './components/AnimationSkip/AnimationSkip';
 
 function App() {
+
+  // const [skipped, setSkipped] = useState(false);
 
   const pizzaWrapper = useRef(null);
   const plateWrapper = useRef(null);
   // const sliderWrapper = useRef(null);
+  const tl = gsap.timeline({ defaults: { ease: 'back.out(1.7)' } });
 
   useEffect(() => {
 
-    console.log(window.matchMedia('(orientation: landscape)'))
+    // console.log(window.matchMedia('(orientation: landscape)'))
 
     const [elementsPizza] = pizzaWrapper.current.children;
     const [elementsPlate] = plateWrapper.current.children;
@@ -26,7 +30,7 @@ function App() {
     const plateWrap = document.querySelector('.plate_wrapper');
     const pizzaWrap = document.querySelector('.pizza_wrapper');
     const pizza = document.querySelector('.pizza');
-
+    const skipper = document.querySelector('.animation_skip__button');
     // get elements for pizza building animation
     const dough = elementsPizza.getElementById('pizzas_svg__buildDough');
     const sauce = elementsPizza.getElementById('pizzas_svg__buildSauce');
@@ -67,8 +71,6 @@ function App() {
     gsap.set([pizza, pizzaWrap, plateWrap], { transformOrigin: 'center' });
     gsap.set('svg', { visibility: "visible", transformOrigin: 'center' });
     // gsap.set([formaggi], { autoAlpha: 1, y: "-=200vh" });
-
-    const tl = gsap.timeline({ defaults: { ease: 'back.out(1.7)' } });
 
     tl
       .fromTo(dough, { scale: 0.8 }, { duration: 1, scale: 1, delay: 1, autoAlpha: 1 })
@@ -125,6 +127,7 @@ function App() {
         .to(vsShard01, { duration: 0.3, delay: -0.3, x: '+=1vw', y: '-=6vw' })
         .to(vsShard02, { duration: 0.3, delay: -0.3, x: '+=3vw', y: '-=8vw' })
         .to(vsShard03, { duration: 0.3, delay: -0.3, x: '-=1vw', y: '-=7vw' })
+        .to(skipper, {autoAlpha: 0})
     } else {
       tl
         .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, x: "+=100vw", transform: 'rotateZ(80deg)' })
@@ -169,6 +172,7 @@ function App() {
         .to(vsShard01, { duration: 0.3, delay: -0.3, x: '+=3vw', y: '-=33vw' })
         .to(vsShard02, { duration: 0.3, delay: -0.3, x: '+=9vw', y: '-=46vw' })
         .to(vsShard03, { duration: 0.3, delay: -0.3, x: '-=3vw', y: '-=42vw' })
+        .to(skipper, {autoAlpha: 0})
     }
 
   }, []);
@@ -177,6 +181,10 @@ function App() {
     <AppProvider>
 
       <div className="App" >
+
+        {/* {skipped ? null : <AnimationSkip className='animation_skip' timeline={tl} skipper={setSkipped} />} */}
+
+      <AnimationSkip className='animation_skip' timeline={tl} />
 
         <div className='plate_wrapper' ref={plateWrapper}>
           <Plate />

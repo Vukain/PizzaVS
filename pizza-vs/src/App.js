@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import './App.sass';
 
 import AppProvider from './AppContext'
-import PizzaInput from './components/PizzaInput/PizzaInput.jsx';
+import PlateInput from './components/PlateInput/PlateInput.jsx';
 import ShowResult from './components/ShowResult/ShowResult.jsx';
 import Pizza from './components/Pizza/Pizza';
 import Plate from './components/Plate/Plate';
@@ -188,8 +188,7 @@ function App() {
 
         <div className='plate_wrapper' ref={plateWrapper}>
           <Plate />
-          <PizzaInput classer='unos' name='uno' />
-          <PizzaInput classer='dos' name='due' />
+          <PlateInput />
         </div>
 
         <div className="pizza_wrapper" ref={pizzaWrapper}>

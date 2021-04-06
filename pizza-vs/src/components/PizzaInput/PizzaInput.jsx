@@ -22,16 +22,23 @@ const PizzaInput = (props) => {
     }
         , [pizzaPrice, pizzaCount, pizzaSize])
 
+    const numb = props.classer === 'unos';
+
     return (
         <div className={`pizza_input pizza_input--${props.classer}`}>
-            <h2 className="pizza_input__title">PIZZA {props.name.toUpperCase()} </h2>
+
+            { numb ? <h2 className="pizza_input__title">PIZZA {props.name.toUpperCase()} </h2> : null}
+
             <form className="pizza_input__form" action="">
-                <label className="pizza_input__label" htmlFor="">Rozmiar: <input placeholder='DIAMETER' className="pizza_input__input" type="number" onChange={({ target }) => { setPizzaSize(parseInt(target.value)) }} /></label>
-                <label className="pizza_input__label" htmlFor="">Ilość: <input className="pizza_input__input" type="number" onChange={({ target }) => { setPizzaCount(parseInt(target.value)) }} value={pizzaCount} /></label>
-                <label className="pizza_input__label" htmlFor="">Łączna cena: <input className="pizza_input__input" type="number" onChange={({ target }) => { setPizzaPrice(parseInt(target.value)) }} /></label>
+                <input placeholder='DIAMETER' className={`pizza_input__input pizza_input__input--${props.classer}`} type="number" onChange={({ target }) => { setPizzaSize(parseInt(target.value)) }} />
+                <input placeholder='COUNT' className={`pizza_input__input pizza_input__input--${props.classer}`} type="number" onChange={({ target }) => { setPizzaCount(parseInt(target.value)) }} />
+                <input placeholder='PRICE' className={`pizza_input__input pizza_input__input--${props.classer}`} type="number" onChange={({ target }) => { setPizzaPrice(parseInt(target.value)) }} />
             </form>
+
+            { !numb ? <h2 className="pizza_input__title">PIZZA {props.name.toUpperCase()} </h2> : null}
+
             {/* <button onClick={() => { console.log(pizzaData) }}>Loguj</button> */}
-            <p>Wartość: {getPizzaData.value.toFixed(2)}</p>
+            {/* <p>Wartość: {getPizzaData.value.toFixed(2)}</p> */}
         </div>);
 }
 

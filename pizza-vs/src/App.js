@@ -31,6 +31,7 @@ function App() {
     const pizzaWrap = document.querySelector('.pizza_wrapper');
     const pizza = document.querySelector('.pizza');
     const skipper = document.querySelector('.animation_skip__button');
+
     // get elements for pizza building animation
     const dough = elementsPizza.getElementById('pizzas_svg__buildDough');
     const sauce = elementsPizza.getElementById('pizzas_svg__buildSauce');
@@ -61,13 +62,14 @@ function App() {
     const shard08 = elementsPlate.getElementById('broken_svg__shard08');
     const shard09 = elementsPlate.getElementById('broken_svg__shard09');
     // const shard10 = elementsPlate.getElementById('broken_svg__shard10');
-
     const vsShard00 = elementsPlate.getElementById('broken_svg__vsShard00');
     const vsShard01 = elementsPlate.getElementById('broken_svg__vsShard01');
     const vsShard02 = elementsPlate.getElementById('broken_svg__vsShard02');
     const vsShard03 = elementsPlate.getElementById('broken_svg__vsShard03');
+    const sign = elementsPlate.getElementById('broken_svg__pizzaSign');
+    const input = document.querySelector('.plate_input');
 
-    gsap.set([dough, sauce, cheese, prosciuttos, tomatos, rucola, olives, formaggi, mozzarellas, mare, peppe, hawa, carbo], { autoAlpha: 0, transformOrigin: 'center' });
+    gsap.set([dough, sauce, cheese, prosciuttos, tomatos, rucola, olives, formaggi, mozzarellas, mare, peppe, hawa, carbo, sign, input], { autoAlpha: 0, transformOrigin: 'center' });
     gsap.set([pizza, pizzaWrap, plateWrap], { transformOrigin: 'center' });
     gsap.set('svg', { visibility: "visible", transformOrigin: 'center' });
     // gsap.set([formaggi], { autoAlpha: 1, y: "-=200vh" });
@@ -127,7 +129,6 @@ function App() {
         .to(vsShard01, { duration: 0.3, delay: -0.3, x: '+=1vw', y: '-=6vw' })
         .to(vsShard02, { duration: 0.3, delay: -0.3, x: '+=3vw', y: '-=8vw' })
         .to(vsShard03, { duration: 0.3, delay: -0.3, x: '-=1vw', y: '-=7vw' })
-        .to(skipper, {autoAlpha: 0})
     } else {
       tl
         .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, x: "+=100vw", transform: 'rotateZ(80deg)' })
@@ -172,8 +173,12 @@ function App() {
         .to(vsShard01, { duration: 0.3, delay: -0.3, x: '+=3vw', y: '-=33vw' })
         .to(vsShard02, { duration: 0.3, delay: -0.3, x: '+=9vw', y: '-=46vw' })
         .to(vsShard03, { duration: 0.3, delay: -0.3, x: '-=3vw', y: '-=42vw' })
-        .to(skipper, {autoAlpha: 0})
     }
+
+    tl
+    .to(sign, {duration: 0.3, autoAlpha: 1})
+    .to(input, {duration: 0.3, delay: -0.3, autoAlpha: 1})
+    .to(skipper, {autoAlpha: 0, delay: -0.3})
 
   }, []);
 

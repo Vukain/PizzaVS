@@ -5,18 +5,21 @@
     align-items: stretch
 
     @media(orientation: portrait)
-        visibility: hidden
+        height: 26%
 
     &--unos
         margin-top: 12%
 
     &--dos
-        margin-bottom: 8%
+        margin-bottom: 7%
 
     &__title
         color: rgb(61, 186, 204)
         font-size: 5vh
         margin: 5px 0
+        @media(orientation: portrait)
+            font-size: 5vw
+            margin: 2px 0
 
     &__form
         flex-grow: 1
@@ -28,6 +31,8 @@
     &__label
         display: block
         font-size: 3vh
+        @media(orientation: portrait)
+            font-size: 3vw
 
     &__input
         text-align: center
@@ -41,6 +46,11 @@
         border: 2px solid rgb(227, 224, 224)
         border-radius: 10px
         outline: none
+
+        @media(orientation: portrait)
+            font-size: 2vw
+            padding: 0
+            margin: 2px 0
 
         &:focus
             border: 2px solid rgb(61, 186, 204)

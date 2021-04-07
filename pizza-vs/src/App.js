@@ -69,13 +69,14 @@ function App() {
     const sign = elementsPlate.getElementById('broken_svg__pizzaSign');
     const input = document.querySelector('.plate_input');
 
-    gsap.set([dough, sauce, cheese, prosciuttos, tomatos, rucola, olives, formaggi, mozzarellas, mare, peppe, hawa, carbo, sign, input], { autoAlpha: 0, transformOrigin: 'center' });
+    gsap.set([dough, sauce, cheese, prosciuttos, tomatos, rucola, olives, formaggi, mozzarellas, mare, peppe, hawa, carbo, sign, input, skipper], { autoAlpha: 0, transformOrigin: 'center' });
     gsap.set([pizza, pizzaWrap, plateWrap], { transformOrigin: 'center' });
-    gsap.set('svg', { visibility: "visible", transformOrigin: 'center' });
+    gsap.set(['svg'], { visibility: "visible", transformOrigin: 'center' });
     // gsap.set([formaggi], { autoAlpha: 1, y: "-=200vh" });
 
     tl
-      .fromTo(dough, { scale: 0.8 }, { duration: 1, scale: 1, delay: 1, autoAlpha: 1 })
+      .fromTo(skipper, { scale: 0.8 }, {duration:1, scale: 1, autoAlpha: 1})
+      .fromTo(dough, { scale: 0.8 }, { duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(sauce, { scale: 0.9 }, { duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(cheese, { scale: 0.9 }, { duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(mozzarellas, { scale: 0.9 }, { duration: 1, scale: 1, autoAlpha: 1 })

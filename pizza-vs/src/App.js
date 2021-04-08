@@ -36,6 +36,8 @@ function App() {
     const dough = elementsPizza.getElementById('pizzas_svg__buildDough');
     const sauce = elementsPizza.getElementById('pizzas_svg__buildSauce');
     const cheese = elementsPizza.getElementById('pizzas_svg__buildCheese');
+    const plateFull = elementsPizza.getElementById('pizzas_svg__plateFull');
+    const eaten = elementsPizza.getElementById('pizzas_svg__eaten');
     const mozzarellas = elementsPizza.querySelectorAll('[id*="buildMozzarella"]');
     const prosciuttos = elementsPizza.querySelectorAll('[id*="buildProsciuttoA"], [id*="buildProsciuttoB"]');
     const tomatos = elementsPizza.querySelectorAll('[id*="buildTomatoSmall"]');
@@ -49,6 +51,7 @@ function App() {
     const peppe = elementsPizza.getElementById('pizzas_svg__pepperoni');
     const hawa = elementsPizza.getElementById('pizzas_svg__hawaii');
     const carbo = elementsPizza.getElementById('pizzas_svg__carbonara');
+    const empty = elementsPizza.getElementById('pizzas_svg__empty');
 
     // get shards for plate breaking animation
     const shard00 = elementsPlate.getElementById('broken_svg__shard00');
@@ -69,13 +72,14 @@ function App() {
     const sign = elementsPlate.getElementById('broken_svg__pizzaSign');
     const input = document.querySelector('.plate_input');
 
-    gsap.set([dough, sauce, cheese, prosciuttos, tomatos, rucola, olives, formaggi, mozzarellas, mare, peppe, hawa, carbo, sign, input, skipper], { autoAlpha: 0, transformOrigin: 'center' });
+    gsap.set([dough, sauce, cheese, prosciuttos, tomatos, rucola, olives, formaggi, mozzarellas, mare, peppe, hawa, carbo, sign, input, skipper, plateFull, eaten, empty], { autoAlpha: 0, transformOrigin: 'center' });
     gsap.set([pizza, pizzaWrap, plateWrap], { transformOrigin: 'center' });
-    gsap.set(['svg'], { visibility: "visible", transformOrigin: 'center' });
+    gsap.set('svg', { visibility: "visible", transformOrigin: 'center' });
     // gsap.set([formaggi], { autoAlpha: 1, y: "-=200vh" });
 
     tl
       .fromTo(skipper, { scale: 0.8 }, {duration:1, scale: 1, autoAlpha: 1})
+      .fromTo(plateFull, { scale: 0.8 }, { duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(dough, { scale: 0.8 }, { duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(sauce, { scale: 0.9 }, { duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(cheese, { scale: 0.9 }, { duration: 1, scale: 1, autoAlpha: 1 })
@@ -113,7 +117,13 @@ function App() {
         .to(carbo, { autoAlpha: 1 })
         .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
 
+        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
+        .to(carbo, { autoAlpha: 0 })
+        .to(empty, { autoAlpha: 1 })
+        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
+
         .fromTo([pizzaWrap, plateWrap], {}, { ease: "expo.inOut", duration: 2, delay: 1, x: "+=100vh" })
+        .to(pizza, { duration: 1, scale: 1.2 })
         .to(plateWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(plateWrap, { ease: "bounce.out", duration: 1, scale: 1 })
         .to(shard06, { duration: 0.3, delay: -0.3, x: '+=10vw' })
@@ -179,6 +189,7 @@ function App() {
     tl
     .to(sign, {duration: 0.3, autoAlpha: 1})
     .to(input, {duration: 0.3, delay: -0.3, autoAlpha: 1})
+    .to(eaten, {duration: 0.3, autoAlpha: 1})
     .to(skipper, {autoAlpha: 0, delay: -0.3})
 
   }, []);

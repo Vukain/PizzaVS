@@ -4,11 +4,12 @@ import gsap from 'gsap';
 import './App.sass';
 
 import AppProvider from './AppContext'
+import AnimationSkip from './components/AnimationSkip/AnimationSkip';
 import PlateInput from './components/PlateInput/PlateInput.jsx';
 import ShowResult from './components/ShowResult/ShowResult.jsx';
 import Pizza from './components/Pizza/Pizza';
 import Plate from './components/Plate/Plate';
-import AnimationSkip from './components/AnimationSkip/AnimationSkip';
+
 
 function App() {
 
@@ -73,12 +74,12 @@ function App() {
     const input = document.querySelector('.plate_input');
 
     gsap.set([dough, sauce, cheese, prosciuttos, tomatos, rucola, olives, formaggi, mozzarellas, mare, peppe, hawa, carbo, sign, input, skipper, plateFull, eaten, empty], { autoAlpha: 0, transformOrigin: 'center' });
-    gsap.set([pizza, pizzaWrap, plateWrap], { transformOrigin: 'center' });
+    gsap.set([pizza, pizzaWrap, plateWrap], { transformOrigin: 'center'});
     gsap.set('svg', { visibility: "visible", transformOrigin: 'center' });
     // gsap.set([formaggi], { autoAlpha: 1, y: "-=200vh" });
 
     tl
-      .fromTo(skipper, { scale: 0.8 }, {duration:1, scale: 1, autoAlpha: 1})
+      .fromTo(skipper, { scale: 0.8 }, {duration:1, delay: 0.1, scale: 1,  autoAlpha: 1})
       .fromTo(plateFull, { scale: 0.8 }, { duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(dough, { scale: 0.8 }, { duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(sauce, { scale: 0.9 }, { duration: 1, scale: 1, autoAlpha: 1 })
@@ -92,35 +93,41 @@ function App() {
 
     if (window.matchMedia('(orientation: landscape)').matches) {
       tl
-        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
-        .to(parma, { autoAlpha: 0 })
-        .to(formaggi, { autoAlpha: 1 })
-        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
+        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, y: "+=100vh", transform: 'rotateZ(-80deg)' })
+        .to([pizza, parma], { duration: 0, autoAlpha: 0 })
+        .to(pizza, { duration: 0, y: "-=200vh", transform: 'rotateZ(80deg)' })
+        .to([pizza, formaggi], { duration: 0, autoAlpha: 1 })
+        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.6, y: "+=100vh", transform: 'rotateZ(0deg)' })
 
-        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
-        .to(formaggi, { autoAlpha: 0 })
-        .to(mare, { autoAlpha: 1 })
-        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
+        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, y: "-=100vh", transform: 'rotateZ(80deg)' })
+        .to([pizza, formaggi], { duration: 0, autoAlpha: 0 })
+        .to(pizza, { duration: 0, y: "+=200vh", transform: 'rotateZ(-80deg)'  })
+        .to([pizza, mare], { duration: 0, autoAlpha: 1 })
+        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.6, y: "-=100vh", transform: 'rotateZ(0deg)' })
 
-        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
-        .to(mare, { autoAlpha: 0 })
-        .to(peppe, { autoAlpha: 1 })
-        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
+        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, y: "+=100vh", transform: 'rotateZ(-80deg)' })
+        .to([pizza, mare], { duration: 0, autoAlpha: 0 })
+        .to(pizza, { duration: 0, y: "-=200vh", transform: 'rotateZ(80deg)' })
+        .to([pizza, peppe], { duration: 0, autoAlpha: 1 })
+        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.6, y: "+=100vh", transform: 'rotateZ(0deg)' })
 
-        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
-        .to(peppe, { autoAlpha: 0 })
-        .to(hawa, { autoAlpha: 1 })
-        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
+        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, y: "-=100vh", transform: 'rotateZ(80deg)' })
+        .to([pizza, peppe], { duration: 0, autoAlpha: 0 })
+        .to(pizza, { duration: 0, y: "+=200vh", transform: 'rotateZ(-80deg)'  })
+        .to([pizza, hawa], { duration: 0, autoAlpha: 1 })
+        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.6, y: "-=100vh", transform: 'rotateZ(0deg)' })
 
-        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
-        .to(hawa, { autoAlpha: 0 })
-        .to(carbo, { autoAlpha: 1 })
-        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
+        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, y: "+=100vh", transform: 'rotateZ(-80deg)' })
+        .to([pizza, hawa], { duration: 0, autoAlpha: 0 })
+        .to(pizza, { duration: 0, y: "-=200vh", transform: 'rotateZ(80deg)' })
+        .to([pizza, carbo], { duration: 0, autoAlpha: 1 })
+        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.6, y: "+=100vh", transform: 'rotateZ(0deg)' })
 
-        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, y: "+=100vh", transform: 'rotateZ(-80deg)' })
-        .to(carbo, { autoAlpha: 0 })
-        .to(empty, { autoAlpha: 1 })
-        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, y: "-=100vh", transform: 'rotateZ(0deg)' })
+        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, y: "-=100vh", transform: 'rotateZ(80deg)' })
+        .to([pizza, carbo], { duration: 0, autoAlpha: 0 })
+        .to(pizza, { duration: 0, y: "+=200vh", transform: 'rotateZ(-80deg)'  })
+        .to([pizza, empty], { duration: 0, autoAlpha: 1 })
+        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.6, y: "-=100vh", transform: 'rotateZ(0deg)' })
 
         .fromTo([pizzaWrap, plateWrap], {}, { ease: "expo.inOut", duration: 2, delay: 1, x: "+=100vh" })
         .to(pizza, { duration: 1, scale: 1.2 })
@@ -142,30 +149,41 @@ function App() {
         .to(vsShard03, { duration: 0.3, delay: -0.3, x: '-=1vw', y: '-=7vw' })
     } else {
       tl
-        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, x: "+=100vw", transform: 'rotateZ(80deg)' })
-        .to(parma, { autoAlpha: 0 })
-        .to(formaggi, { autoAlpha: 1 })
-        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, x: "-=100vw", transform: 'rotateZ(0deg)' })
+      .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, x: "+=100vw", transform: 'rotateZ(80deg)' })
+      .to([pizza, parma], { duration: 0, autoAlpha: 0 })
+      .to(pizza, { duration: 0, x: "-=200vw", transform: 'rotateZ(-80deg)' })
+      .to([pizza, formaggi], { duration: 0, autoAlpha: 1 })
+      .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.6, x: "+=100vw", transform: 'rotateZ(0deg)' })
 
-        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, x: "+=100vw", transform: 'rotateZ(80deg)' })
-        .to(formaggi, { autoAlpha: 0 })
-        .to(mare, { autoAlpha: 1 })
-        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, x: "-=100vw", transform: 'rotateZ(0deg)' })
+      .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, x: "-=100vw", transform: 'rotateZ(-80deg)' })
+      .to([pizza, formaggi], { duration: 0, autoAlpha: 0 })
+      .to(pizza, { duration: 0, x: "+=200vw", transform: 'rotateZ(80deg)'  })
+      .to([pizza, mare], { duration: 0, autoAlpha: 1 })
+      .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.6, x: "-=100vw", transform: 'rotateZ(0deg)' })
 
-        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, x: "+=100vw", transform: 'rotateZ(80deg)' })
-        .to(mare, { autoAlpha: 0 })
-        .to(peppe, { autoAlpha: 1 })
-        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, x: "-=100vw", transform: 'rotateZ(0deg)' })
+      .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, x: "+=100vw", transform: 'rotateZ(80deg)' })
+      .to([pizza, mare], { duration: 0, autoAlpha: 0 })
+      .to(pizza, { duration: 0, x: "-=200vw", transform: 'rotateZ(-80deg)' })
+      .to([pizza, peppe], { duration: 0, autoAlpha: 1 })
+      .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.6, x: "+=100vw", transform: 'rotateZ(0deg)' })
 
-        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, x: "+=100vw", transform: 'rotateZ(80deg)' })
-        .to(peppe, { autoAlpha: 0 })
-        .to(hawa, { autoAlpha: 1 })
-        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, x: "-=100vw", transform: 'rotateZ(0deg)' })
+      .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, x: "-=100vw", transform: 'rotateZ(-80deg)' })
+      .to([pizza, peppe], { duration: 0, autoAlpha: 0 })
+      .to(pizza, { duration: 0, x: "+=200vw", transform: 'rotateZ(80deg)'  })
+      .to([pizza, hawa], { duration: 0, autoAlpha: 1 })
+      .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.6, x: "-=100vw", transform: 'rotateZ(0deg)' })
 
-        .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.5, x: "+=100vw", transform: 'rotateZ(80deg)' })
-        .to(hawa, { autoAlpha: 0 })
-        .to(carbo, { autoAlpha: 1 })
-        .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.8, delay: 0.2, x: "-=100vw", transform: 'rotateZ(0deg)' })
+      .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, x: "+=100vw", transform: 'rotateZ(80deg)' })
+      .to([pizza, hawa], { duration: 0, autoAlpha: 0 })
+      .to(pizza, { duration: 0, x: "-=200vw", transform: 'rotateZ(-80deg)' })
+      .to([pizza, carbo], { duration: 0, autoAlpha: 1 })
+      .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.6, x: "+=100vw", transform: 'rotateZ(0deg)' })
+
+      .fromTo(pizza, {}, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, x: "-=100vw", transform: 'rotateZ(-80deg)' })
+      .to([pizza, carbo], { duration: 0, autoAlpha: 0 })
+      .to(pizza, { duration: 0, x: "+=200vw", transform: 'rotateZ(80deg)'  })
+      .to([pizza, empty], { duration: 0, autoAlpha: 1 })
+      .fromTo(pizza, {}, { ease: "elastic.out(0.8, 0.3)", duration: 1.6, x: "-=100vw", transform: 'rotateZ(0deg)' })
 
         .fromTo([pizzaWrap, plateWrap], {}, { ease: "expo.inOut", duration: 2, delay: 1, y: "+=100vw" })
         .to(plateWrap, { duration: 1, delay: -0.6, scale: 1.2 })

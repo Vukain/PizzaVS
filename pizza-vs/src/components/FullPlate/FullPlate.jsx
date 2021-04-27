@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { PizzaImg } from '../../media';
+import { PlateImg } from '../../media';
 
 const Pizza = () => {
 
     return (
-        <PizzaImg className='pizza' />
+        <PlateImg className='full_plate' />
     );
 }
 

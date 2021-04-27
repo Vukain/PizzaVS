@@ -18,7 +18,7 @@ const PizzaInput = (props) => {
         let surface = 3.14 * ((pizzaSize / 2) ** 2) * pizzaCount;
         let value = surface / pizzaPrice;
 
-        setPizzaData({ size: pizzaSize, count: pizzaCount, price: pizzaPrice, value: value });
+        setPizzaData({ size: pizzaSize, count: pizzaCount, price: pizzaPrice, surface: surface, value: value });
     }
         , [pizzaPrice, pizzaCount, pizzaSize])
 

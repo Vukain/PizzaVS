@@ -6,7 +6,6 @@ import './PlateInput.sass';
 
 const PlateInput = (props) => {
 
-
     return (
         <div className={`plate_input`}>
             <PizzaInput classer='unos' name='uno' />

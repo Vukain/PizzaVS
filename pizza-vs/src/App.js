@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
 import './App.sass';
@@ -22,31 +22,28 @@ function App() {
 
   useEffect(() => {
 
-    // console.log(window.matchMedia('(orientation: landscape)'))
     const skipper = document.querySelector('.animation_skip__button');
-    
+
     const [elementsPlate, elementsPizza] = resultWrapper.current.children;
     const [elementsBroken] = inputWrapper.current.children;
     const inputWrap = document.querySelector('.input_wrapper');
     const resultWrap = document.querySelector('.result_wrapper');
-
-    const pizza = document.querySelector('.pizza');
-    const plate = document.querySelector('.plate');
-    const plateWithPizza = [pizza, plate]
+    const plateWithPizza = [elementsPlate, elementsPizza]
 
     // get elements for pizza building animation
-    const plateFuk = elementsPlate.getElementById('plate_svg__plateFull');
-
+    const plateVisible = elementsPlate.getElementById('plate_svg__plateFull');
+    const plateHidden = elementsPizza.getElementById('pizzas_svg__plateFull');
     const dough = elementsPizza.getElementById('pizzas_svg__buildDough');
     const sauce = elementsPizza.getElementById('pizzas_svg__buildSauce');
     const cheese = elementsPizza.getElementById('pizzas_svg__buildCheese');
-    const plateHidden = elementsPizza.getElementById('pizzas_svg__plateFull');
-    const eaten = elementsPizza.getElementById('pizzas_svg__eaten');
     const mozzarellas = elementsPizza.querySelectorAll('[id*="buildMozzarella"]');
     const prosciuttos = elementsPizza.querySelectorAll('[id*="buildProsciuttoA"], [id*="buildProsciuttoB"]');
     const tomatos = elementsPizza.querySelectorAll('[id*="buildTomatoSmall"]');
     const rucola = elementsPizza.querySelectorAll('[id*="buildRucolaA"], [id*="buildRucolaB"], [id*="buildRucolaC"]');
     const olives = elementsPizza.querySelectorAll('[id*="buildBlackOliveA"], [id*="buildBlackOliveB"]');
+    const buildIngredients = [plateHidden, plateVisible, dough, sauce, cheese, prosciuttos, tomatos, rucola, olives, mozzarellas]
+
+    const eaten = elementsPizza.getElementById('pizzas_svg__eaten');
 
     // get pizza types
     const parma = elementsPizza.getElementById('pizzas_svg__parma');
@@ -56,6 +53,7 @@ function App() {
     const hawa = elementsPizza.getElementById('pizzas_svg__hawaii');
     const carbo = elementsPizza.getElementById('pizzas_svg__carbonara');
     const empty = elementsPizza.getElementById('pizzas_svg__empty');
+    const pizzaTypes = [formaggi, mare, peppe, hawa, carbo, empty]
 
     // get shards for plate breaking animation
     const shard00 = elementsBroken.getElementById('broken_svg__shard00');
@@ -76,13 +74,14 @@ function App() {
     const sign = elementsBroken.getElementById('broken_svg__pizzaSign');
 
     const input = document.querySelector('.plate_input');
+    const result = document.querySelector('.show_result');
 
-    gsap.set([dough, sauce, cheese, prosciuttos, tomatos, rucola, olives, formaggi, mozzarellas, mare, peppe, hawa, carbo, sign, input, skipper, plateHidden, eaten, empty, plateFuk], { autoAlpha: 0 });
+    gsap.set([buildIngredients, pizzaTypes, sign, input, result, skipper, eaten], { autoAlpha: 0 });
     gsap.set('svg', { visibility: "visible" });
 
     tl
       .fromTo(skipper, { scale: 0.8 }, { duration: 1, delay: 0.1, scale: 1, autoAlpha: 1 })
-      .fromTo(plateFuk, { scale: 0.8 }, { duration: 1, scale: 1, autoAlpha: 1 })
+      .fromTo(plateVisible, { scale: 0.8 }, { duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(dough, { scale: 0.8 }, { duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(sauce, { scale: 0.9 }, { duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(cheese, { scale: 0.9 }, { duration: 1, scale: 1, autoAlpha: 1 })
@@ -211,8 +210,9 @@ function App() {
       .to(sign, { duration: 0.3, autoAlpha: 1 })
       .to(input, { duration: 0.3, delay: -0.3, autoAlpha: 1 })
       // .to(eaten, {duration: 0.3, autoAlpha: 1})
-      .to(empty, { autoAlpha: 0, delay: -0.3 })
       .to(skipper, { autoAlpha: 0, delay: -0.3 })
+      .to(result, { autoAlpha: 1, delay: -0.3 })
+      .to(empty, { autoAlpha: 0 })
 
   }, []);
 
@@ -233,13 +233,8 @@ function App() {
         <div className="result_wrapper" ref={resultWrapper}>
           <PlateImg className='plate' />
           <PizzaImg className='pizza' />
-
           <ShowResult />
         </div>
-
-        {/* <div className="slider" ref={sliderWrapper}>
-          <FormaImg />
-        </div> */}
 
       </div>
     </AppProvider>

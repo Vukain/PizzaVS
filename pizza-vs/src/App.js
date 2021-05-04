@@ -71,12 +71,15 @@ function App() {
     const vsShard01 = elementsBroken.getElementById('broken_svg__vsShard01');
     const vsShard02 = elementsBroken.getElementById('broken_svg__vsShard02');
     const vsShard03 = elementsBroken.getElementById('broken_svg__vsShard03');
+
     const sign = elementsBroken.getElementById('broken_svg__pizzaSign');
+    const variantUno = elementsBroken.getElementById('broken_svg__variant_uno');
+    const variantDue = elementsBroken.getElementById('broken_svg__variant_due');
 
     const input = document.querySelector('.plate_input');
     const result = document.querySelector('.show_result');
 
-    gsap.set([buildIngredients, pizzaTypes, sign, input, result, skipper, eaten], { autoAlpha: 0 });
+    gsap.set([buildIngredients, pizzaTypes, sign, input, result, skipper, eaten, variantUno, variantDue], { autoAlpha: 0 });
     gsap.set('svg', { visibility: "visible" });
 
     tl
@@ -133,20 +136,6 @@ function App() {
         .to(plateWithPizza, { duration: 1, scale: 1.2 })
         .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(inputWrap, { ease: "bounce.out", duration: 1, scale: 1 })
-        .to(shard06, { duration: 0.3, delay: -0.3, x: '+=10vw' })
-        .to(shard08, { duration: 0.3, delay: -0.3, x: '+=12vw', y: '-=4vw' })
-        .to(shard09, { duration: 0.3, delay: -0.3, x: '+=6vw', y: '-=3vw' })
-        .to(shard05, { duration: 0.3, delay: -0.3, x: '+=7vw', y: '+=2vw' })
-        .to(shard04, { duration: 0.3, delay: -0.3, x: '+=2vw', y: '+=4vw', transform: 'rotateZ(-2deg)' })
-        .to(shard02, { duration: 0.3, delay: -0.3, x: '+=14vw', y: '+=8vw' })
-        .to(shard01, { duration: 0.3, delay: -0.3, x: '+=10vw', y: '+=10vw', transform: 'rotateZ(4deg)' })
-        .to(shard03, { duration: 0.3, delay: -0.3, x: '+=10vw', y: '+=4vw' })
-        .to(shard07, { duration: 0.3, delay: -0.3, x: '-=2vw', y: '+=2vw' })
-        .to(shard00, { duration: 0.3, delay: -0.3, x: '+=2vw', y: '+=7vw', transform: 'rotateZ(2deg)' })
-        .to(vsShard00, { duration: 0.3, delay: -0.3, x: '+=3vw', y: '-=6vw' })
-        .to(vsShard01, { duration: 0.3, delay: -0.3, x: '+=1vw', y: '-=6vw' })
-        .to(vsShard02, { duration: 0.3, delay: -0.3, x: '+=3vw', y: '-=8vw' })
-        .to(vsShard03, { duration: 0.3, delay: -0.3, x: '-=1vw', y: '-=7vw' })
 
     } else {
       tl
@@ -190,25 +179,27 @@ function App() {
         .to(plateWithPizza, { duration: 1, scale: 1.2 })
         .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(inputWrap, { ease: "bounce.out", duration: 1, scale: 1 })
-        .to(shard06, { duration: 0.3, delay: -0.3, x: '+=30vw' })
-        .to(shard08, { duration: 0.3, delay: -0.3, x: '+=36vw', y: '-=12vw' })
-        .to(shard09, { duration: 0.3, delay: -0.3, x: '+=18vw', y: '-=9vw' })
-        .to(shard05, { duration: 0.3, delay: -0.3, x: '+=21vw', y: '+=6vw' })
-        .to(shard04, { duration: 0.3, delay: -0.3, x: '+=4vw', y: '+=18vw', transform: 'rotateZ(-2deg)' })
-        .to(shard02, { duration: 0.3, delay: -0.3, x: '+=42vw', y: '+=28vw' })
-        .to(shard01, { duration: 0.3, delay: -0.3, x: '+=27vw', y: '+=37vw', transform: 'rotateZ(4deg)' })
-        .to(shard03, { duration: 0.3, delay: -0.3, x: '+=30vw', y: '+=16vw' })
-        .to(shard07, { duration: 0.3, delay: -0.3, x: '-=6vw', y: '+=13vw' })
-        .to(shard00, { duration: 0.3, delay: -0.3, x: '+=6vw', y: '+=26vw', transform: 'rotateZ(2deg)' })
-        .to(vsShard00, { duration: 0.3, delay: -0.3, x: '+=12w', y: '-=34vw' })
-        .to(vsShard01, { duration: 0.3, delay: -0.3, x: '+=3vw', y: '-=33vw' })
-        .to(vsShard02, { duration: 0.3, delay: -0.3, x: '+=9vw', y: '-=46vw' })
-        .to(vsShard03, { duration: 0.3, delay: -0.3, x: '-=3vw', y: '-=42vw' })
     }
 
     tl
+      // plate breaking
+      .to(shard00, { duration: 0.3, delay: -0.3, xPercent: '3', yPercent: '15', transform: 'rotateZ(2deg)' })
+      .to(shard01, { duration: 0.3, delay: -0.3, xPercent: '40', yPercent: '90', transform: 'rotateZ(4deg)' })
+      .to(shard02, { duration: 0.3, delay: -0.3, xPercent: '24', yPercent: '30' })
+      .to(shard03, { duration: 0.3, delay: -0.3, xPercent: '20', yPercent: '30' })
+      .to(shard04, { duration: 0.3, delay: -0.3, xPercent: '4', yPercent: '12', transform: 'rotateZ(-2deg)' })
+      .to(shard05, { duration: 0.3, delay: -0.3, xPercent: '19', yPercent: '18' })
+      .to(shard06, { duration: 0.3, delay: -0.3, xPercent: '15' })
+      .to(shard07, { duration: 0.3, delay: -0.3, xPercent: '-8', yPercent: '20' })
+      .to(shard08, { duration: 0.3, delay: -0.3, xPercent: '46', yPercent: '-20' })
+      .to(shard09, { duration: 0.3, delay: -0.3, xPercent: '40', yPercent: '-16' })
+      .to(vsShard00, { duration: 0.3, delay: -0.3, xPercent: '62', yPercent: '-132' })
+      .to(vsShard01, { duration: 0.3, delay: -0.3, xPercent: '18', yPercent: '-102' })
+      .to(vsShard02, { duration: 0.3, delay: -0.3, xPercent: '46', yPercent: '-168' })
+      .to(vsShard03, { duration: 0.3, delay: -0.3, xPercent: '-16', yPercent: '-160', transform: 'rotateZ(-8deg)' })
+
       .to(sign, { duration: 0.3, autoAlpha: 1 })
-      .to(input, { duration: 0.3, delay: -0.3, autoAlpha: 1 })
+      .to([input, variantUno, variantDue], { duration: 0.3, delay: -0.3, autoAlpha: 1 })
       // .to(eaten, {duration: 0.3, autoAlpha: 1})
       .to(skipper, { autoAlpha: 0, delay: -0.3 })
       .to(result, { autoAlpha: 1, delay: -0.3 })

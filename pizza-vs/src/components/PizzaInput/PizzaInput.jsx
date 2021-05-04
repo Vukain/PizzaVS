@@ -27,7 +27,7 @@ const PizzaInput = (props) => {
     return (
         <div className={`pizza_input pizza_input--${props.classer}`}>
 
-            { numb ? <h2 className="pizza_input__title">PIZZA {props.name.toUpperCase()} </h2> : null}
+            {/* { numb ? <h2 className="pizza_input__title">PIZZA {props.name.toUpperCase()} </h2> : null} */}
 
             <form className="pizza_input__form" action="">
                 <input placeholder='DIAMETER' className={`pizza_input__input pizza_input__input--${props.classer}`} type="number" onChange={({ target }) => { setPizzaSize(parseInt(target.value)) }} />
@@ -35,7 +35,7 @@ const PizzaInput = (props) => {
                 <input placeholder='PRICE' className={`pizza_input__input pizza_input__input--${props.classer}`} type="number" onChange={({ target }) => { setPizzaPrice(parseInt(target.value)) }} />
             </form>
 
-            { !numb ? <h2 className="pizza_input__title">PIZZA {props.name.toUpperCase()} </h2> : null}
+            {/* { !numb ? <h2 className="pizza_input__title">PIZZA {props.name.toUpperCase()} </h2> : null} */}
 
             {/* <button onClick={() => { console.log(pizzaData) }}>Loguj</button> */}
             {/* <p>Wartość: {getPizzaData.value.toFixed(2)}</p> */}

@@ -53,8 +53,10 @@ function App() {
     const hawa = elementsPizza.getElementById('pizzas_svg__hawaii');
     const carbo = elementsPizza.getElementById('pizzas_svg__carbonara');
     const empty = elementsPizza.getElementById('pizzas_svg__empty_slicing');
-    const sliceA = elementsPizza.getElementById('pizzas_svg__slice-a');
-    const sliceB = elementsPizza.getElementById('pizzas_svg__slice-b');
+    const sliceA = elementsPizza.getElementById('pizzas_svg__slice_a');
+    const sliceB = elementsPizza.getElementById('pizzas_svg__slice_b');
+    const slicePartsA = new Array(...elementsPizza.querySelectorAll('[id*="slice_a_g"]')).reverse();
+    const slicePartsB = new Array(...elementsPizza.querySelectorAll('[id*="slice_b_g"]')).reverse();;
     const pizzaTypes = [formaggi, mare, peppe, hawa, carbo, empty];
 
     // get shards for plate breaking animation
@@ -85,6 +87,7 @@ function App() {
     gsap.set('svg', { visibility: "visible" });
 
     let slicer_rotate = 0;
+    let reset_rotate = 0;
 
     tl
       .fromTo(skipper, { scale: 0.8 }, { duration: 1, delay: 0.1, scale: 1, autoAlpha: 1 })
@@ -140,7 +143,8 @@ function App() {
         .to(plateWithPizza, { duration: 1, scale: 1.2 })
         .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(inputWrap, { ease: "bounce.out", duration: 1, scale: 1 })
-        slicer_rotate = -45
+        slicer_rotate = -45;
+        reset_rotate = 120;
     } else {
       tl
         .to(plateWithPizza, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, x: "+=100vw", transform: 'rotateZ(80deg)' })
@@ -179,11 +183,12 @@ function App() {
         .to([plateWithPizza, empty], { duration: 0, autoAlpha: 1})
         .to(plateWithPizza, { ease: "elastic.out(0.8, 0.3)", duration: 1.7, x: "-=100vw", transform: 'rotateZ(0deg)' })
 
-        .to([resultWrap, inputWrap], { ease: "expo.inOut", duration: 2, delay: 1, y: "+=100vw" })
+        .to([resultWrap, inputWrap], { ease: "expo.inOut", duration: 2, delay: 1, y: "+=90vw" })
         .to(plateWithPizza, { duration: 1, scale: 1.2 })
         .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(inputWrap, { ease: "bounce.out", duration: 1, scale: 1 })
-        slicer_rotate = 45
+        slicer_rotate = 45;
+        reset_rotate = -120;
     }
 
     tl
@@ -209,14 +214,13 @@ function App() {
       .to(skipper, { autoAlpha: 0, delay: -0.3 }, 'slicer')
       .to(result, { autoAlpha: 1, delay: -0.3 })
       .to(empty, { duration: 0.6, transform: `rotateZ(${slicer_rotate}deg)` })
-      .to(sliceA, { ease: 'Power1.easeOut', duration: .3, xPercent: '-15', yPercent: '-10' })
-      .to(sliceA, { duration: 0.2, delay: .5, autoAlpha: 0 })
+      .to(sliceA, { ease: 'Expo.easeOut', duration: .6, xPercent: '-15', yPercent: '-10' })
+      .to(slicePartsA, { duration: 0.1, stagger: .4, delay: .2, autoAlpha: 0 })
       .to(sliceA, { duration: 0, xPercent: '0', yPercent: '0' })
-      .to(sliceB, { ease: 'Power1.easeOut', duration: .3, xPercent: '-10', yPercent: '-15' })
-      .to(sliceB, { duration: 0.2, delay: .5, autoAlpha: 0 })
+      .to(sliceB, { ease: 'Expo.easeOut', duration: .6, xPercent: '-10', yPercent: '-15' })
+      .to(slicePartsB, { duration: 0.1, stagger: .4, delay: .2, autoAlpha: 0 })
       .to(sliceB, { duration: 0, xPercent: '0', yPercent: '0' })
-
-      .to(empty, { duration: 1, transform: `rotateZ(120deg)` })
+      .to(empty, { duration: 1, delay: 1, transform: `rotateZ(${reset_rotate}deg)` })
 
   }, []);
 

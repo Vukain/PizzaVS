@@ -27,7 +27,7 @@ function App() {
 
     const [elementsPlate, elementsPizza] = resultWrapper.current.children;
     const [elementsBroken] = inputWrapper.current.children;
-    const inputWrap = document.querySelector('.input_wrapper');
+    const inputWrap = document.querySelector('.input_wrapper'); 
     const resultWrap = document.querySelector('.result_wrapper');
     const plateWithPizza = [elementsPlate, elementsPizza]
 
@@ -227,10 +227,6 @@ function App() {
 
   }, []);
 
-  if (document.querySelectorAll('.pizza_input__input--valid').length === 6) {
-    console.log(111)
-    resultTl.paused(false)
-  }
 
   return (
     <AppProvider>

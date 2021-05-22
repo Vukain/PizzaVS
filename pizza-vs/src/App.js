@@ -214,9 +214,10 @@ function App() {
       // .to(eaten, {duration: 0.3, autoAlpha: 1})
       .to(skipper, { autoAlpha: 0, delay: -0.3 }, 'slicer')
       .to(result, { autoAlpha: 1, delay: -0.3 })
+      
     resultTl
       .paused(true)
-      .to(empty, { duration: 0.6, transform: `rotateZ(${slicer_rotate}deg)` })
+      .to(empty, { duration: 1, delay: .1, transform: `rotateZ(${slicer_rotate}deg)` })
       .to(sliceA, { ease: 'Expo.easeOut', duration: .6, xPercent: '-15', yPercent: '-10' })
       .to(slicePartsA, { duration: 0.1, stagger: .4, delay: .2, autoAlpha: 0 })
       .to(sliceA, { duration: 0, xPercent: '0', yPercent: '0' })

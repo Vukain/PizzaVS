@@ -19,6 +19,7 @@ function App() {
   const inputWrapper = useRef(null);
 
   const tl = gsap.timeline({ defaults: { ease: 'back.out(1.7)', transformOrigin: 'center' } });
+  const resultTl = gsap.timeline({ defaults: { ease: 'back.out(1.7)', transformOrigin: 'center' } });
 
   useEffect(() => {
 
@@ -143,8 +144,8 @@ function App() {
         .to(plateWithPizza, { duration: 1, scale: 1.2 })
         .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(inputWrap, { ease: "bounce.out", duration: 1, scale: 1 })
-        slicer_rotate = -45;
-        reset_rotate = 120;
+      slicer_rotate = -45;
+      reset_rotate = 120;
     } else {
       tl
         .to(plateWithPizza, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, x: "+=100vw", transform: 'rotateZ(80deg)' })
@@ -180,15 +181,15 @@ function App() {
         .to(plateWithPizza, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, x: "-=100vw", transform: 'rotateZ(-80deg)' })
         .to([plateWithPizza, peppe], { duration: 0, autoAlpha: 0 })
         .to(plateWithPizza, { duration: 0, x: "+=200vw", transform: 'rotateZ(80deg)' })
-        .to([plateWithPizza, empty], { duration: 0, autoAlpha: 1})
+        .to([plateWithPizza, empty], { duration: 0, autoAlpha: 1 })
         .to(plateWithPizza, { ease: "elastic.out(0.8, 0.3)", duration: 1.7, x: "-=100vw", transform: 'rotateZ(0deg)' })
 
         .to([resultWrap, inputWrap], { ease: "expo.inOut", duration: 2, delay: 1, y: "+=90vw" })
         .to(plateWithPizza, { duration: 1, scale: 1.2 })
         .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(inputWrap, { ease: "bounce.out", duration: 1, scale: 1 })
-        slicer_rotate = 45;
-        reset_rotate = -120;
+      slicer_rotate = 45;
+      reset_rotate = -120;
     }
 
     tl
@@ -213,6 +214,8 @@ function App() {
       // .to(eaten, {duration: 0.3, autoAlpha: 1})
       .to(skipper, { autoAlpha: 0, delay: -0.3 }, 'slicer')
       .to(result, { autoAlpha: 1, delay: -0.3 })
+    resultTl
+      .paused(true)
       .to(empty, { duration: 0.6, transform: `rotateZ(${slicer_rotate}deg)` })
       .to(sliceA, { ease: 'Expo.easeOut', duration: .6, xPercent: '-15', yPercent: '-10' })
       .to(slicePartsA, { duration: 0.1, stagger: .4, delay: .2, autoAlpha: 0 })
@@ -220,9 +223,14 @@ function App() {
       .to(sliceB, { ease: 'Expo.easeOut', duration: .6, xPercent: '-10', yPercent: '-15' })
       .to(slicePartsB, { duration: 0.1, stagger: .4, delay: .2, autoAlpha: 0 })
       .to(sliceB, { duration: 0, xPercent: '0', yPercent: '0' })
-      .to(empty, { duration: 1, delay: 1, transform: `rotateZ(${reset_rotate}deg)` })
+    // .to(empty, { duration: 1, delay: 1, transform: `rotateZ(${reset_rotate}deg)` })
 
   }, []);
+
+  if (document.querySelectorAll('.pizza_input__input--valid').length === 6) {
+    console.log(111)
+    resultTl.paused(false)
+  }
 
   return (
     <AppProvider>
@@ -235,13 +243,13 @@ function App() {
 
         <div className='input_wrapper' ref={inputWrapper}>
           <BrokenImg className='broken_plate' />
-          <PlateInput />
+          <PlateInput timeline={resultTl} />
         </div>
 
         <div className="result_wrapper" ref={resultWrapper}>
           <PlateImg className='plate' />
           <PizzaImg className='pizza' />
-          <ShowResult />
+          <ShowResult timeline={resultTl} />
         </div>
 
       </div>

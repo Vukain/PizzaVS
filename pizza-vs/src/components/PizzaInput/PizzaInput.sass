@@ -14,7 +14,7 @@
         margin-bottom: 21%
 
     &__title
-        color: rgb(61, 186, 204)
+        color: #3dbacc
         font-size: 5vh
         margin: 5px 0
         @media(orientation: portrait)
@@ -43,7 +43,7 @@
         transition: .3s
         font-size: 2vh
         color: #292929
-        border: 2px solid rgb(227, 224, 224)
+        border: 2px solid #e3e0e0
         border-radius: 10px
         outline: none
 
@@ -55,7 +55,13 @@
             border-width: 1px
 
         &:focus
-            border-color: rgb(61, 186, 204)
+            border-color: #3dbacc
             border-radius: 14px
             @media(orientation: portrait)
                 border-radius: 8px
+
+        &--valid
+            border-color: #53da8b
+
+        &--invalid
+            border-color: #E7655C

@@ -1,6 +1,4 @@
 import React from 'react';
-import gsap from 'gsap';
-
 import './AnimationSkip.sass';
 
 const AnimationSkip = (props) => {

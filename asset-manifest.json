@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/PizzaVS/static/css/main.5b0f16f7.chunk.css",
-    "main.js": "/PizzaVS/static/js/main.13ccd9a6.chunk.js",
-    "main.js.map": "/PizzaVS/static/js/main.13ccd9a6.chunk.js.map",
+    "main.js": "/PizzaVS/static/js/main.d91be56f.chunk.js",
+    "main.js.map": "/PizzaVS/static/js/main.d91be56f.chunk.js.map",
     "runtime-main.js": "/PizzaVS/static/js/runtime-main.eda3444c.js",
     "runtime-main.js.map": "/PizzaVS/static/js/runtime-main.eda3444c.js.map",
     "static/css/2.679831fc.chunk.css": "/PizzaVS/static/css/2.679831fc.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.679831fc.chunk.css",
     "static/js/2.d50f7999.chunk.js",
     "static/css/main.5b0f16f7.chunk.css",
-    "static/js/main.13ccd9a6.chunk.js"
+    "static/js/main.d91be56f.chunk.js"
   ]
 }

@@ -141,7 +141,6 @@ function App() {
         .to(plateWithPizza, { ease: "elastic.out(0.8, 0.3)", duration: 1.7, y: "-=100vh", transform: 'rotateZ(0deg)' })
 
         .to([resultWrap, inputWrap], { ease: "expo.inOut", duration: 2, delay: 1, x: "+=100vh" })
-        .to(plateWithPizza, { duration: 1, scale: 1.2 })
         .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(inputWrap, { ease: "bounce.out", duration: 1, scale: 1 })
       slicer_rotate = -45;
@@ -185,7 +184,7 @@ function App() {
         .to(plateWithPizza, { ease: "elastic.out(0.8, 0.3)", duration: 1.7, x: "-=100vw", transform: 'rotateZ(0deg)' })
 
         .to([resultWrap, inputWrap], { ease: "expo.inOut", duration: 2, delay: 1, y: "+=90vw" })
-        .to(plateWithPizza, { duration: 1, scale: 1.2 })
+
         .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(inputWrap, { ease: "bounce.out", duration: 1, scale: 1 })
       slicer_rotate = 45;
@@ -213,16 +212,17 @@ function App() {
       .to([input, variantUno, variantDue], { duration: 0.3, delay: -0.3, autoAlpha: 1 })
       // .to(eaten, {duration: 0.3, autoAlpha: 1})
       .to(skipper, { autoAlpha: 0, delay: -0.3 }, 'slicer')
-      .to(result, { autoAlpha: 1, delay: -0.3 })
       
     resultTl
       .paused(true)
-      .to(empty, { duration: 1, delay: .1, transform: `rotateZ(${slicer_rotate}deg)` })
-      .to(sliceA, { ease: 'Expo.easeOut', duration: .6, xPercent: '-15', yPercent: '-10' })
-      .to(slicePartsA, { duration: 0.1, stagger: .4, delay: .2, autoAlpha: 0 })
+      .to(plateWithPizza, { duration: 1, delay: 0.3, scale: 1.2 })
+      .to(result, { autoAlpha: 1, duration: 0.1 })
+      .to(empty, { duration: 1, delay: 0.1, transform: `rotateZ(${slicer_rotate}deg)` })
+      .to(sliceA, { ease: 'Expo.easeOut', duration: 0.6, xPercent: '-15', yPercent: '-10' })
+      .to(slicePartsA, { duration: 0.1, stagger: 0.4, delay: 0.2, autoAlpha: 0 })
       .to(sliceA, { duration: 0, xPercent: '0', yPercent: '0' })
-      .to(sliceB, { ease: 'Expo.easeOut', duration: .6, xPercent: '-10', yPercent: '-15' })
-      .to(slicePartsB, { duration: 0.1, stagger: .4, delay: .2, autoAlpha: 0 })
+      .to(sliceB, { ease: 'Expo.easeOut', duration: 0.6, xPercent: '-10', yPercent: '-15' })
+      .to(slicePartsB, { duration: 0.1, stagger: 0.4, delay: 0.2, autoAlpha: 0 })
       .to(sliceB, { duration: 0, xPercent: '0', yPercent: '0' })
     // .to(empty, { duration: 1, delay: 1, transform: `rotateZ(${reset_rotate}deg)` })
 

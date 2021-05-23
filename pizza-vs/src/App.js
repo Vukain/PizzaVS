@@ -83,12 +83,13 @@ function App() {
 
     const input = document.querySelector('.plate_input');
     const result = document.querySelector('.show_result');
+    const result_simple = document.querySelector('.plate_input__result_simple');
 
-    gsap.set([buildIngredients, pizzaTypes, sign, input, result, skipper, eaten, variantUno, variantDue], { autoAlpha: 0 });
+    gsap.set([buildIngredients, pizzaTypes, sign, input, result, result_simple, skipper, eaten, variantUno, variantDue], { autoAlpha: 0 });
     gsap.set('svg', { visibility: "visible" });
 
     let slicer_rotate = 0;
-    let reset_rotate = 0;
+    // let reset_rotate = 0;
 
     tl
       .fromTo(skipper, { scale: 0.8 }, { duration: 1, delay: 0.1, scale: 1, autoAlpha: 1 })
@@ -184,7 +185,7 @@ function App() {
         .to([plateWithPizza, empty], { duration: 0, autoAlpha: 1 })
         .to(plateWithPizza, { ease: "elastic.out(0.8, 0.3)", duration: 1.7, x: "-=100vw", transform: 'rotateZ(0deg)' })
         .to(resultWrap, { ease: "expo.inOut", duration: 2, delay: 1, top: "100%" })
-        .to(inputWrap, { ease: "expo.inOut", duration: 2, delay: -2, top: '40%' })
+        .to(inputWrap, { ease: "expo.inOut", duration: 2, delay: -2, top: '35%' })
 
         .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(inputWrap, { ease: "bounce.out", duration: 1, scale: 1 })
@@ -215,8 +216,9 @@ function App() {
       
     resultTl
       .paused(true)
+      .to([result_simple], { autoAlpha: 1, duration: 0.1 })
       .to(plateWithPizza, { duration: 1, delay: 0.4, scale: 1.2 })
-      .to(result, { autoAlpha: 1, duration: 0.1 })
+      .to([result], { autoAlpha: 1, duration: 0.1 })
       .to(empty, { duration: 1, delay: 0.1, transform: `rotateZ(${slicer_rotate}deg)` })
       .to(sliceA, { ease: 'Expo.easeOut', duration: 0.6, xPercent: '-15', yPercent: '-10' })
       .to(slicePartsA, { duration: 0.1, stagger: 0.4, delay: 0.2, autoAlpha: 0 })

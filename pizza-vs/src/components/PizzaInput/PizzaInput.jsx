@@ -22,7 +22,7 @@ const PizzaInput = (props) => {
         }
     }, [pizzaPrice, pizzaCount, pizzaSize, setPizzaData]);
 
-    const numb = props.classer === 'unos';
+    // const numb = props.classer === 'unos';
 
     const validationHandler = (e) => {
         const removeClass = !(e.target.value > 0) ? 'pizza_input__input--valid' : 'pizza_input__input--invalid';

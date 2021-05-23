@@ -78,6 +78,8 @@ function App() {
     const vsShard03 = elementsBroken.getElementById('broken_svg__vsShard03');
 
     const sign = elementsBroken.getElementById('broken_svg__pizzaSign');
+    const vuk = elementsBroken.querySelectorAll('[id*="vuk_sign"]');
+    console.log(vuk)
     const variantUno = elementsBroken.getElementById('broken_svg__variant_uno');
     const variantDue = elementsBroken.getElementById('broken_svg__variant_due');
 
@@ -85,7 +87,7 @@ function App() {
     const result = document.querySelector('.show_result');
     const result_simple = document.querySelector('.plate_input__result_simple');
 
-    gsap.set([buildIngredients, pizzaTypes, sign, input, result, result_simple, skipper, eaten, variantUno, variantDue], { autoAlpha: 0 });
+    gsap.set([buildIngredients, pizzaTypes, sign, input, result, result_simple, skipper, eaten, variantUno, variantDue, vuk], { autoAlpha: 0 });
     gsap.set('svg', { visibility: "visible" });
 
     let slicer_rotate = 0;
@@ -184,8 +186,8 @@ function App() {
         .to(plateWithPizza, { duration: 0, x: "+=200vw", transform: 'rotateZ(80deg)' })
         .to([plateWithPizza, empty], { duration: 0, autoAlpha: 1 })
         .to(plateWithPizza, { ease: "elastic.out(0.8, 0.3)", duration: 1.7, x: "-=100vw", transform: 'rotateZ(0deg)' })
-        .to(resultWrap, { ease: "expo.inOut", duration: 2, delay: 1, top: "100%" })
-        .to(inputWrap, { ease: "expo.inOut", duration: 2, delay: -2, top: '35%' })
+        .to(resultWrap, { ease: "expo.inOut", duration: 2, delay: 1, top: "96%" })
+        .to(inputWrap, { ease: "expo.inOut", duration: 2, delay: -2, top: "32%" })
 
         .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(inputWrap, { ease: "bounce.out", duration: 1, scale: 1 })
@@ -210,7 +212,7 @@ function App() {
       .to(vsShard02, { duration: 0.3, delay: -0.3, xPercent: '46', yPercent: '-168' })
       .to(vsShard03, { duration: 0.3, delay: -0.3, xPercent: '-16', yPercent: '-160', transform: 'rotateZ(-8deg)' })
 
-      .to(sign, { duration: 0.3, autoAlpha: 1 })
+      .to([sign, vuk], { duration: 0.3, autoAlpha: 1 })
       .to([input, variantUno, variantDue], { duration: 0.3, delay: -0.3, autoAlpha: 1 })
       .to(skipper, { autoAlpha: 0, delay: -0.3 }, 'slicer')
       
@@ -229,7 +231,7 @@ function App() {
     // .to(empty, { duration: 1, delay: 1, transform: `rotateZ(${reset_rotate}deg)` })
 
   }, []);
-
+  const x = '<v/k>'
 
   return (
     <AppProvider>
@@ -250,7 +252,7 @@ function App() {
           <PizzaImg className='pizza' />
           <ShowResult timeline={resultTl} />
         </div>
-
+        
       </div>
     </AppProvider>
   );

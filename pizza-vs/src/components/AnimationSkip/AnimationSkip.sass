@@ -3,19 +3,23 @@
     position: absolute
     height: 10vh
     width: 10vh
-    top: 0
-    left: 0
-    margin: 10px
-    cursor: pointer
-    transition: color .2s, background-color .2s
+    top: 2vh
+    left: 2vh
     background-color: #fff
     color: #3dbacc
-    border-radius: 50%
     font-size: 4vh
-    border: 5px solid white
+    border-radius: 50%
+    border: 5px solid #fff
     outline: none
+    cursor: pointer
+    transition: color .2s, background-color .2s
+
+    @media(orientation: portrait)
+        top: 2vw
+        left: 2vw
+        height: 20vw
+        width: 20vw
 
     &:hover
-        border: 5px solid white
         background-color: #E7655C
-        color: white
+        color: #fff

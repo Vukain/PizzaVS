@@ -1,9 +1,19 @@
 .show_result
     position: absolute
     top: 50%
-    left: 5%
+    left: 8%
     transform: translateY(-50%)
     color: rgb(61, 186, 204)
     font-size: 3vh
     @media(orientation: portrait)
+        top: 5%
+        left: 50%
+        transform: translateX(-50%)
         font-size: 3vw
+
+    &__name
+        margin: 0
+        &:nth-of-type(2)
+            margin-top: 10px
+    &__data
+        margin: 0

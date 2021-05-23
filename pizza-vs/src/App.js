@@ -140,11 +140,12 @@ function App() {
         .to([plateWithPizza, empty], { duration: 0, autoAlpha: 1 })
         .to(plateWithPizza, { ease: "elastic.out(0.8, 0.3)", duration: 1.7, y: "-=100vh", transform: 'rotateZ(0deg)' })
 
-        .to([resultWrap, inputWrap], { ease: "expo.inOut", duration: 2, delay: 1, x: "+=100vh" })
+        .to(resultWrap, { ease: "expo.inOut", duration: 2, delay: 1, left: "100%" })
+        .to(inputWrap, { ease: "expo.inOut", duration: 2, delay: -2, x: "+=100vh" })
         .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(inputWrap, { ease: "bounce.out", duration: 1, scale: 1 })
       slicer_rotate = -45;
-      reset_rotate = 120;
+      // reset_rotate = 120;
     } else {
       tl
         .to(plateWithPizza, { ease: "elastic.in(0.5, 0.3)", duration: 1.4, delay: 0.3, x: "+=100vw", transform: 'rotateZ(80deg)' })
@@ -182,13 +183,13 @@ function App() {
         .to(plateWithPizza, { duration: 0, x: "+=200vw", transform: 'rotateZ(80deg)' })
         .to([plateWithPizza, empty], { duration: 0, autoAlpha: 1 })
         .to(plateWithPizza, { ease: "elastic.out(0.8, 0.3)", duration: 1.7, x: "-=100vw", transform: 'rotateZ(0deg)' })
-
-        .to([resultWrap, inputWrap], { ease: "expo.inOut", duration: 2, delay: 1, y: "+=90vw" })
+        .to(resultWrap, { ease: "expo.inOut", duration: 2, delay: 1, top: "100%" })
+        .to(inputWrap, { ease: "expo.inOut", duration: 2, delay: -2, top: '40%' })
 
         .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(inputWrap, { ease: "bounce.out", duration: 1, scale: 1 })
       slicer_rotate = 45;
-      reset_rotate = -120;
+      // reset_rotate = -120;
     }
 
     tl
@@ -210,12 +211,11 @@ function App() {
 
       .to(sign, { duration: 0.3, autoAlpha: 1 })
       .to([input, variantUno, variantDue], { duration: 0.3, delay: -0.3, autoAlpha: 1 })
-      // .to(eaten, {duration: 0.3, autoAlpha: 1})
       .to(skipper, { autoAlpha: 0, delay: -0.3 }, 'slicer')
       
     resultTl
       .paused(true)
-      .to(plateWithPizza, { duration: 1, delay: 0.3, scale: 1.2 })
+      .to(plateWithPizza, { duration: 1, delay: 0.4, scale: 1.2 })
       .to(result, { autoAlpha: 1, duration: 0.1 })
       .to(empty, { duration: 1, delay: 0.1, transform: `rotateZ(${slicer_rotate}deg)` })
       .to(sliceA, { ease: 'Expo.easeOut', duration: 0.6, xPercent: '-15', yPercent: '-10' })

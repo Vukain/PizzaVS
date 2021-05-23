@@ -18,12 +18,9 @@ const PizzaInput = (props) => {
         if (pizzaSize > 0 && pizzaCount > 0 && pizzaPrice > 0) {
             let surface = 3.14 * ((pizzaSize / 2) ** 2) * pizzaCount;
             let value = surface / pizzaPrice;
-
             setPizzaData({ size: pizzaSize, count: pizzaCount, price: pizzaPrice, surface: surface, value: value });
         }
-    }
-
-        , [pizzaPrice, pizzaCount, pizzaSize, setPizzaData])
+    }, [pizzaPrice, pizzaCount, pizzaSize, setPizzaData]);
 
     const numb = props.classer === 'unos';
 

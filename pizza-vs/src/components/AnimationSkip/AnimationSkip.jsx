@@ -9,7 +9,6 @@ const AnimationSkip = (props) => {
             onClick={
                 () => {
                     // props.timeline.progress(1, false)
-
                     props.timeline.currentLabel('slicer')
                     // props.skipper(true)
 

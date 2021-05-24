@@ -137,7 +137,7 @@ function App() {
         .to([plateWithPizza, empty], { duration: 0, autoAlpha: 1 })
         .to(plateWithPizza, { ease: 'elastic.out(0.8, 0.3)', duration: 1.7, y: '-=100vh', transform: 'rotateZ(0deg)' })
 
-        .to(resultWrap, { ease: 'expo.inOut', duration: 2, delay: 1, left: '100%' })
+        .to(resultWrap, { ease: 'expo.inOut', duration: 2, delay: 0.5, left: '100%' })
         .to(inputWrap, { ease: 'expo.inOut', duration: 2, delay: -2, x: '+=100vh' })
 
       slicer_rotate = -45;
@@ -180,7 +180,7 @@ function App() {
         .to([plateWithPizza, empty], { duration: 0, autoAlpha: 1 })
         .to(plateWithPizza, { ease: 'elastic.out(0.8, 0.3)', duration: 1.7, x: '-=100vw', transform: 'rotateZ(0deg)' })
 
-        .to(resultWrap, { ease: 'expo.inOut', duration: 2, delay: 1, top: '96%' })
+        .to(resultWrap, { ease: 'expo.inOut', duration: 2, delay: 0.5, top: '96%' })
         .to(inputWrap, { ease: 'expo.inOut', duration: 2, delay: -2, top: '32%' })
 
       slicer_rotate = 45;

@@ -97,6 +97,7 @@ function App() {
       .fromTo(rucola, { scale: 1.3 }, { stagger: 0.1, duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(tomatos, { scale: 1.3 }, { stagger: 0.1, duration: 1, scale: 1, autoAlpha: 1 })
       .fromTo(olives, { scale: 1.3 }, { stagger: 0.1, duration: 0.6, scale: 1, autoAlpha: 1 })
+
     if (window.matchMedia('(orientation: landscape)').matches) {
       tl
         // pizza sliding animation for landscape
@@ -183,7 +184,7 @@ function App() {
         .to(inputWrap, { ease: 'expo.inOut', duration: 2, delay: -2, top: '32%' })
 
       slicer_rotate = 45;
-    }
+    };
 
     tl
       // plate breaking
@@ -231,13 +232,13 @@ function App() {
         <AnimationSkip className='animation_skip' timeline={tl} />
 
         <div className='input_wrapper' ref={inputWrapper}>
-          <BrokenImg className='broken_plate' />
+          <BrokenImg className='broken_plate' alt='broken plate image'/>
           <PlateInput timeline={resultTl} />
         </div>
 
         <div className='result_wrapper' ref={resultWrapper}>
-          <PlateImg className='plate' />
-          <PizzaImg className='pizza' />
+          <PlateImg className='plate' alt='plate image'/>
+          <PizzaImg className='pizza' alt='pizza image'/>
           <ShowResult timeline={resultTl} />
         </div>
 

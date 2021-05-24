@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 
-import PizzaInput from '../PizzaInput/PizzaInput';
 import { AppContext } from '../../AppContext';
+import PizzaInput from '../PizzaInput/PizzaInput';
 
 import './PlateInput.sass';
 
 const PlateInput = (props) => {
 
-    const pizzaData = useContext(AppContext)
+    const pizzaData = useContext(AppContext);
 
     const { getPizzaData: unoData } = pizzaData['uno'];
     const { getPizzaData: dueData } = pizzaData['due'];

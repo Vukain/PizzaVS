@@ -7,7 +7,7 @@ import './ShowResult.sass';
 const ShowResult = (props) => {
 
     const pizzaData = useContext(AppContext);
-    
+
     const { getPizzaData: unoData } = pizzaData['uno'];
     const { getPizzaData: dueData } = pizzaData['due'];
 
@@ -19,11 +19,11 @@ const ShowResult = (props) => {
 
     return (
         <div className='show_result show_result--raw_data'>
-            <h2 className='show_result__name'>Variant A</h2>
+            <h2 className='show_result__name'>Variant Uno</h2>
             <p className='show_result__data'>Surface: {unoData.surface.toFixed(2)} cm<sup>2</sup></p>
             <p className='show_result__data'>Value: {unoData.value.toFixed(2)} cm<sup>2</sup>/$</p>
 
-            <h2 className='show_result__name'>Variant B</h2>
+            <h2 className='show_result__name'>Variant Due</h2>
             <p className='show_result__data'>Surface: {dueData.surface.toFixed(2)} cm<sup>2</sup></p>
             <p className='show_result__data'>Value: {dueData.value.toFixed(2)} cm<sup>2</sup>/$</p>
         </div>

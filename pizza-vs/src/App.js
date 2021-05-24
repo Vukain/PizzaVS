@@ -29,18 +29,18 @@ function App() {
     // get main sections
     const inputWrap = document.querySelector('.input_wrapper');
     const resultWrap = document.querySelector('.result_wrapper');
-    const skipButton = document.querySelector('.animation_skip__button');
+    const skipButton = document.querySelector('.animation_skip');
     // get elements for pizza building animation
-    const plateVisible = elementsPlate.getElementById('plate_svg__plateFull');
-    const plateHidden = elementsPizza.getElementById('pizzas_svg__plateFull');
-    const dough = elementsPizza.getElementById('pizzas_svg__buildDough');
-    const sauce = elementsPizza.getElementById('pizzas_svg__buildSauce');
-    const cheese = elementsPizza.getElementById('pizzas_svg__buildCheese');
-    const mozzarella = elementsPizza.querySelectorAll('[id*="buildMozzarella"]');
-    const prosciuttos = elementsPizza.querySelectorAll('[id*="buildProsciuttoA"], [id*="buildProsciuttoB"]');
-    const tomatos = elementsPizza.querySelectorAll('[id*="buildTomatoSmall"]');
-    const rucola = elementsPizza.querySelectorAll('[id*="buildRucolaA"], [id*="buildRucolaB"], [id*="buildRucolaC"]');
-    const olives = elementsPizza.querySelectorAll('[id*="buildBlackOliveA"], [id*="buildBlackOliveB"]');
+    const plateVisible = elementsPlate.getElementById('plate_svg__plate_full');
+    const plateHidden = elementsPizza.getElementById('pizzas_svg__plate_full');
+    const dough = elementsPizza.getElementById('pizzas_svg__build_dough');
+    const sauce = elementsPizza.getElementById('pizzas_svg__build_sauce');
+    const cheese = elementsPizza.getElementById('pizzas_svg__build_cheese');
+    const mozzarella = elementsPizza.querySelectorAll('[id*="build_mozzarella"]');
+    const prosciuttos = elementsPizza.querySelectorAll('[id*="build_prosciutto_a"], [id*="build_prosciutto_b"]');
+    const tomatos = elementsPizza.querySelectorAll('[id*="build_tomato_small"]');
+    const rucola = elementsPizza.querySelectorAll('[id*="build_rucola_a"], [id*="build_rucola_b"], [id*="build_rucola_c"]');
+    const olives = elementsPizza.querySelectorAll('[id*="build_black_olive_a"], [id*="build_black_olive_b"]');
     const buildIngredients = [plateHidden, plateVisible, dough, sauce, cheese, prosciuttos, tomatos, rucola, olives, mozzarella];
     // get pizza types
     const parma = elementsPizza.getElementById('pizzas_svg__parma');
@@ -66,12 +66,12 @@ function App() {
     const shard07 = elementsBroken.getElementById('broken_svg__shard07');
     const shard08 = elementsBroken.getElementById('broken_svg__shard08');
     const shard09 = elementsBroken.getElementById('broken_svg__shard09');
-    const vsShard00 = elementsBroken.getElementById('broken_svg__vsShard00');
-    const vsShard01 = elementsBroken.getElementById('broken_svg__vsShard01');
-    const vsShard02 = elementsBroken.getElementById('broken_svg__vsShard02');
-    const vsShard03 = elementsBroken.getElementById('broken_svg__vsShard03');
+    const vsShard00 = elementsBroken.getElementById('broken_svg__vs_shard00');
+    const vsShard01 = elementsBroken.getElementById('broken_svg__vs_shard01');
+    const vsShard02 = elementsBroken.getElementById('broken_svg__vs_shard02');
+    const vsShard03 = elementsBroken.getElementById('broken_svg__vs_shard03');
     // get broken plate captions
-    const sign = elementsBroken.getElementById('broken_svg__pizzaSign');
+    const pizzaSign = elementsBroken.getElementById('broken_svg__pizza_sign');
     const vukainSign = elementsBroken.querySelectorAll('[id*="vuk_sign"]');
     const variantUno = elementsBroken.getElementById('broken_svg__variant_uno');
     const variantDue = elementsBroken.getElementById('broken_svg__variant_due');
@@ -80,7 +80,7 @@ function App() {
     const result_simple = document.querySelector('.plate_input__result_simple');
     const result = document.querySelector('.show_result');
     // make images not visible at start
-    gsap.set([buildIngredients, pizzaTypes, sign, input, result, result_simple, skipButton, variantUno, variantDue, vukainSign], { autoAlpha: 0 });
+    gsap.set([buildIngredients, pizzaTypes, pizzaSign, input, result, result_simple, skipButton, variantUno, variantDue, vukainSign], { autoAlpha: 0 });
     gsap.set('svg', { visibility: 'visible' });
 
     let slicer_rotate = 0;
@@ -205,7 +205,7 @@ function App() {
       .to(vsShard02, { duration: 0.3, delay: -0.3, xPercent: '46', yPercent: '-168' })
       .to(vsShard03, { duration: 0.3, delay: -0.3, xPercent: '-16', yPercent: '-160', transform: 'rotateZ(-8deg)' })
       // making input elements visible
-      .to([sign, vukainSign], { duration: 0.3, autoAlpha: 1 })
+      .to([pizzaSign, vukainSign], { duration: 0.3, autoAlpha: 1 })
       .to([input, variantUno, variantDue], { duration: 0.3, delay: -0.3, autoAlpha: 1 })
       // hiding skip button
       .to(skipButton, { autoAlpha: 0, delay: -0.3 })
@@ -213,9 +213,9 @@ function App() {
     resultTl
       .paused(true)
       // pizza eating animation
-      .to([result_simple], { autoAlpha: 1, duration: 0.1 })
+      .fromTo(result_simple, {autoAlpha: 0, scale: 0.5}, { autoAlpha: 1, delay: 0.2, duration: 0.4 , scale: 1 })
       .to(plateWithPizza, { duration: 1, delay: 0.4, scale: 1.2 })
-      .to([result], { autoAlpha: 1, duration: 0.1 })
+      .to(result, { autoAlpha: 1, duration: 0.1 })
       .to(empty, { duration: 1, delay: 0.1, transform: `rotateZ(${slicer_rotate}deg)` })
       .to(sliceA, { ease: 'Expo.easeOut', duration: 0.6, xPercent: '-15', yPercent: '-10' })
       .to(slicePartsA, { duration: 0.1, stagger: 0.4, delay: 0.2, autoAlpha: 0 })
@@ -229,7 +229,7 @@ function App() {
     <AppProvider>
       <div className='App' >
 
-        <AnimationSkip className='animation_skip' timeline={tl} />
+        <AnimationSkip timeline={tl} />
 
         <div className='input_wrapper' ref={inputWrapper}>
           <BrokenImg className='broken_plate' alt='broken plate image'/>

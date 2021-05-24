@@ -10,12 +10,14 @@ const AppProvider = ({ children }) => {
     const pizzaData = {
         uno: { getPizzaData: pizzaUnoData, setPizzaData: setPizzaUnoData },
         due: { getPizzaData: pizzaDueData, setPizzaData: setPizzaDueData }
-    }
+    };
 
-    return (<AppContext.Provider value={pizzaData}>
+    return (
+    <AppContext.Provider value={pizzaData}>
         {children}
-    </AppContext.Provider>);
-}
+    </AppContext.Provider>
+    );
+};
 
 // const AppProvider = ({ children }) => {
 

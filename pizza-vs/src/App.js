@@ -136,10 +136,10 @@ function App() {
         .to(plateWithPizza, { duration: 0, y: '+=200vh', transform: 'rotateZ(-80deg)' })
         .to([plateWithPizza, empty], { duration: 0, autoAlpha: 1 })
         .to(plateWithPizza, { ease: 'elastic.out(0.8, 0.3)', duration: 1.7, y: '-=100vh', transform: 'rotateZ(0deg)' })
-
         .to(resultWrap, { ease: 'expo.inOut', duration: 2, delay: 0.5, left: '100%' })
         .to(inputWrap, { ease: 'expo.inOut', duration: 2, delay: -2, x: '+=100vh' })
-
+        .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
+        .to(inputWrap, { ease: 'bounce.out', duration: 1, scale: 1 })
       slicer_rotate = -45;
     } else {
       tl
@@ -180,16 +180,16 @@ function App() {
         .to([plateWithPizza, empty], { duration: 0, autoAlpha: 1 })
         .to(plateWithPizza, { ease: 'elastic.out(0.8, 0.3)', duration: 1.7, x: '-=100vw', transform: 'rotateZ(0deg)' })
 
-        .to(resultWrap, { ease: 'expo.inOut', duration: 2, delay: 0.5, top: '96%' })
+        .to(resultWrap, { ease: 'expo.inOut', duration: 2, delay: 0.5, top: '98%' })
         .to(inputWrap, { ease: 'expo.inOut', duration: 2, delay: -2, top: '32%' })
-
+        .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
+        .to(inputWrap, { ease: 'bounce.out', duration: 1, x: '-=3.8vw', scale: 1.1})
       slicer_rotate = 45;
     };
 
     tl
       // plate breaking
-      .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
-      .to(inputWrap, { ease: 'bounce.out', duration: 1, scale: 1 })
+
       .to(shard00, { duration: 0.3, delay: -0.3, xPercent: '3', yPercent: '15', transform: 'rotateZ(2deg)' })
       .to(shard01, { duration: 0.3, delay: -0.3, xPercent: '40', yPercent: '90', transform: 'rotateZ(4deg)' })
       .to(shard02, { duration: 0.3, delay: -0.3, xPercent: '24', yPercent: '30' })

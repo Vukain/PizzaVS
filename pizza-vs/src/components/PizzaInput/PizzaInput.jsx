@@ -34,9 +34,9 @@ const PizzaInput = (props) => {
         <div className={`pizza_input pizza_input--${props.name}`}>
 
             <form className='pizza_input__form' action=''>
-                <input placeholder='DIAMETER' aria-label={`pizza ${props.name} diameter`} min='1' onBlur={validationHandler} className='pizza_input__input' type="number" onChange={({ target }) => { setPizzaSize(parseInt(target.value)) }} />
-                <input placeholder='COUNT' aria-label={`pizza ${props.name} count`} min='1' onBlur={validationHandler} className='pizza_input__input' type="number" onChange={({ target }) => { setPizzaCount(parseInt(target.value)) }} />
-                <input placeholder='PRICE' aria-label={`pizza ${props.name} price`} min='1' onBlur={validationHandler} className='pizza_input__input' type="number" onChange={({ target }) => { setPizzaPrice(parseInt(target.value)) }} />
+                <input placeholder='DIAMETER' aria-label={`pizza ${props.name} diameter`} min='1' onBlur={validationHandler} className={`pizza_input__input pizza_input__input--${props.name}`} type="number" onChange={({ target }) => { setPizzaSize(parseInt(target.value)) }} />
+                <input placeholder='COUNT' aria-label={`pizza ${props.name} count`} min='1' onBlur={validationHandler} className={`pizza_input__input pizza_input__input--${props.name}`} type="number" onChange={({ target }) => { setPizzaCount(parseInt(target.value)) }} />
+                <input placeholder='PRICE' aria-label={`pizza ${props.name} price`} min='1' onBlur={validationHandler} className={`pizza_input__input pizza_input__input--${props.name}`} type="number" onChange={({ target }) => { setPizzaPrice(parseInt(target.value)) }} />
             </form>
 
         </div>);

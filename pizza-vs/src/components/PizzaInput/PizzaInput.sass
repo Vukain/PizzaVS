@@ -7,9 +7,7 @@
         height: 12%
 
     &--uno
-        margin-top: 20%
-        @media (max-width: 1400px) and (orientation: landscape)
-            margin-top: 18%
+        margin-top: 22%
         @media (orientation: portrait)
             margin-top: 22%
 
@@ -18,7 +16,7 @@
         @media (max-width: 1400px) and (orientation: landscape)
             margin-bottom: 22%
         @media (orientation: portrait)
-            margin-bottom: 18%
+            margin-bottom: 20%
 
     &__form
         flex-grow: 1
@@ -33,17 +31,20 @@
         margin: 0.5vh 0
         padding: 4px
         transition: .3s
-        font-size: 2vh
+        font-size: 2.5vh
+
         color: #292929
         border: 2px solid #e3e0e0
         border-radius: 10px
         outline: none
         @media (orientation: portrait)
+            width: 22%
             border-radius: 4px
-            font-size: 2vw
-            padding: 0
+            font-size: 2.8vw
+            padding: 1px
             margin: 0.4vw 0
             border-width: 1px
+            font-weight: bold
 
         &:focus
             border-color: #3dbacc
@@ -56,3 +57,17 @@
 
         &--invalid
             border-color: #E7655C
+        &--uno
+            &:nth-child(1)
+                margin-left: 18%
+            &:nth-child(2)
+                margin-left: -6%
+            &:nth-child(3)
+                margin-left: -30%
+        &--due
+            &:nth-child(1)
+                margin-left: -20%
+            &:nth-child(2)
+                margin-left: 4%
+            &:nth-child(3)
+                margin-left: 28%

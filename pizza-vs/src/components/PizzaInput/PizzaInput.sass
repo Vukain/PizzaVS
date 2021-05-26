@@ -32,10 +32,10 @@
         padding: 4px
         transition: .3s
         font-size: 2.5vh
-
-        color: #292929
-        border: 2px solid #e3e0e0
-        border-radius: 10px
+        font-weight: bold
+        color: #707070
+        border: 0.25vh solid #e3e0e0
+        border-radius: 1vh
         outline: none
         @media (orientation: portrait)
             width: 22%
@@ -47,27 +47,58 @@
             font-weight: bold
 
         &:focus
-            border-color: #3dbacc
-            border-radius: 14px
+            border-color: #54cc94
+            border-radius: 5px
             @media (orientation: portrait)
                 border-radius: 8px
 
         &--valid
-            border-color: #46d190
+            border-color: #63c2d1
 
         &--invalid
-            border-color: #E7655C
+            border-color: #df645b
+
         &--uno
             &:nth-child(1)
                 margin-left: 18%
+                border-radius: 2vh 2vh 2vh 0
+                @media (orientation: portrait)
+                    border-radius: 2vw 2vw 2vw 0
+                &:focus
+                    border-radius: 0
             &:nth-child(2)
                 margin-left: -6%
+                border-radius: 2vh 0 2vh 0
+                @media (orientation: portrait)
+                    border-radius: 2vw 0 2vw 0
+                &:focus
+                    border-radius: 0
             &:nth-child(3)
                 margin-left: -30%
+                border-radius: 2vh 0 2vh 2vh
+                @media (orientation: portrait)
+                    border-radius: 2vw 0 2vw 2vw
+                &:focus
+                    border-radius: 0
         &--due
             &:nth-child(1)
                 margin-left: -20%
+                border-radius: 2vh 2vh 0 2vh
+                @media (orientation: portrait)
+                    border-radius: 2vw 2vw 0 2vw
+                &:focus
+                    border-radius: 0
             &:nth-child(2)
                 margin-left: 4%
+                border-radius: 0 2vh 0 2vh
+                @media (orientation: portrait)
+                    border-radius: 0 2vw 0 2vw
+                &:focus
+                    border-radius: 0
             &:nth-child(3)
                 margin-left: 28%
+                border-radius: 0 2vh 2vh 2vh
+                @media (orientation: portrait)
+                    border-radius: 0 2vw 2vw 2vw
+                &:focus
+                    border-radius: 0

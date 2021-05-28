@@ -140,6 +140,7 @@ function App() {
         .to(inputWrap, { ease: 'expo.inOut', duration: 2, delay: -2, x: '+=100vh' })
         .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(inputWrap, { ease: 'bounce.out', duration: 1, scale: 1 })
+        
       slicer_rotate = -45;
     } else {
       tl
@@ -184,12 +185,12 @@ function App() {
         .to(inputWrap, { ease: 'expo.inOut', duration: 2, delay: -2, top: '32%' })
         .to(inputWrap, { duration: 1, delay: -0.6, scale: 1.2 })
         .to(inputWrap, { ease: 'bounce.out', duration: 1, x: '-=3.8vw', scale: 1.1})
+
       slicer_rotate = 45;
     };
 
     tl
       // plate breaking
-
       .to(shard00, { duration: 0.3, delay: -0.3, xPercent: '3', yPercent: '15', transform: 'rotateZ(2deg)' })
       .to(shard01, { duration: 0.3, delay: -0.3, xPercent: '40', yPercent: '90', transform: 'rotateZ(4deg)' })
       .to(shard02, { duration: 0.3, delay: -0.3, xPercent: '24', yPercent: '30' })
@@ -211,6 +212,7 @@ function App() {
       .to(skipButton, { autoAlpha: 0, delay: -0.3 })
 
     resultTl
+      // awaiting input
       .paused(true)
       // pizza eating animation
       .fromTo(result_simple, {autoAlpha: 0, scale: 0.5}, { autoAlpha: 1, delay: 0.2, duration: 0.4 , scale: 1 })

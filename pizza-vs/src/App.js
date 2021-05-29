@@ -87,16 +87,16 @@ function App() {
 
     tl
       // building pizza animation
-      .fromTo(skipButton, { scale: 0.8 }, { duration: 1, delay: 0.1, scale: 1, autoAlpha: 1 })
-      .fromTo(plateVisible, { scale: 0.8 }, { duration: 1, scale: 1, autoAlpha: 1 })
-      .fromTo(dough, { scale: 0.8 }, { duration: 1, scale: 1, autoAlpha: 1 })
-      .fromTo(sauce, { scale: 0.9 }, { duration: 1, scale: 1, autoAlpha: 1 })
-      .fromTo(cheese, { scale: 0.9 }, { duration: 1, scale: 1, autoAlpha: 1 })
-      .fromTo(mozzarella, { scale: 0.9 }, { duration: 1, scale: 1, autoAlpha: 1 })
-      .fromTo(prosciuttos, { scale: 1.3 }, { stagger: 0.1, duration: 1, scale: 1, autoAlpha: 1 })
-      .fromTo(rucola, { scale: 1.3 }, { stagger: 0.1, duration: 1, scale: 1, autoAlpha: 1 })
-      .fromTo(tomatos, { scale: 1.3 }, { stagger: 0.1, duration: 1, scale: 1, autoAlpha: 1 })
-      .fromTo(olives, { scale: 1.3 }, { stagger: 0.1, duration: 0.6, scale: 1, autoAlpha: 1 })
+      .fromTo(skipButton, { scale: 0.8 }, { duration: 1, delay: 0.1, scale: 1, autoAlpha: 1, transform: 'rotateZ(0.1deg)' })
+      .fromTo(plateVisible, { scale: 0.8 }, { duration: 1, scale: 1, autoAlpha: 1, transform: 'rotateZ(0.1deg)' })
+      .fromTo(dough, { scale: 0.8 }, { duration: 1, scale: 1, autoAlpha: 1, transform: 'rotateZ(0.1deg)' })
+      .fromTo(sauce, { scale: 0.9 }, { duration: 1, scale: 1, autoAlpha: 1, transform: 'rotateZ(0.1deg)' })
+      .fromTo(cheese, { scale: 0.9 }, { duration: 1, scale: 1, autoAlpha: 1, transform: 'rotateZ(0.1deg)' })
+      .fromTo(mozzarella, { scale: 0.9 }, { duration: 1, scale: 1, autoAlpha: 1, transform: 'rotateZ(0.1deg)' })
+      .fromTo(prosciuttos, { scale: 1.3 }, { stagger: 0.1, duration: 1, scale: 1, autoAlpha: 1, transform: 'rotateZ(0.1deg)' })
+      .fromTo(rucola, { scale: 1.3 }, { stagger: 0.1, duration: 1, scale: 1, autoAlpha: 1, transform: 'rotateZ(0.1deg)' })
+      .fromTo(tomatos, { scale: 1.3 }, { stagger: 0.1, duration: 1, scale: 1, autoAlpha: 1, transform: 'rotateZ(0.1deg)' })
+      .fromTo(olives, { scale: 1.3 }, { stagger: 0.1, duration: 0.6, scale: 1, autoAlpha: 1, transform: 'rotateZ(0.1deg)' })
 
     if (window.matchMedia('(orientation: landscape)').matches) {
       tl
@@ -216,7 +216,7 @@ function App() {
       .paused(true)
       // pizza eating animation
       .fromTo(result_simple, {autoAlpha: 0, scale: 0.5}, { autoAlpha: 1, delay: 0.2, duration: 0.4 , scale: 1 })
-      .to(plateWithPizza, { duration: 1, delay: 0.4, scale: 1.2 })
+      .to(plateWithPizza, { duration: 1, delay: 0.4, scale: 1.2, transform: 'rotateZ(0.1deg)' })
       .to(result, { autoAlpha: 1, duration: 0.1 })
       .to(empty, { duration: 1, delay: 0.1, transform: `rotateZ(${slicer_rotate}deg)` })
       .to(sliceA, { ease: 'Expo.easeOut', duration: 0.6, xPercent: '-15', yPercent: '-10' })

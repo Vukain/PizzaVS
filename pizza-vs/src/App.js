@@ -21,8 +21,8 @@ function App() {
   const tl = gsap.timeline({ defaults: { ease: 'back.out(1.7)', transformOrigin: 'center' } });
   const resultTl = gsap.timeline({ defaults: { ease: 'back.out(1.7)', transformOrigin: 'center' } });
 
-  const elemMapper = (elemArray, elems, prefix) => { 
-    return (elemArray.map(el =>  elems.getElementById(`${prefix}${el}`)));
+  const elemMapper = (elemArray, elems, prefix, method) => { 
+    return  (elemArray.map(el => method === 'id' ? elems.getElementById(`${prefix}${el}`) : elems.querySelectorAll(`${prefix}${el}`)));
   };
 
   useEffect(() => {
@@ -36,25 +36,24 @@ function App() {
     const skipButton = document.querySelector('.animation_skip');
     // get elements for pizza building animation
     const plateVisible = elementsPlate.getElementById('plate_svg__plate_full');
-    const plateHidden = elementsPizza.getElementById('pizzas_svg__plate_full');
-    const dough = elementsPizza.getElementById('pizzas_svg__build_dough');
-    const sauce = elementsPizza.getElementById('pizzas_svg__build_sauce');
-    const cheese = elementsPizza.getElementById('pizzas_svg__build_cheese');
-    const mozzarella = elementsPizza.querySelectorAll('[id*="build_mozzarella"]');
-    const prosciuttos = elementsPizza.querySelectorAll('[id*="build_prosciutto_a"], [id*="build_prosciutto_b"]');
-    const tomatos = elementsPizza.querySelectorAll('[id*="build_tomato_small"]');
-    const rucola = elementsPizza.querySelectorAll('[id*="build_rucola_a"], [id*="build_rucola_b"], [id*="build_rucola_c"]');
-    const olives = elementsPizza.querySelectorAll('[id*="build_black_olive_a"], [id*="build_black_olive_b"]');
+    const buildingBase = ['plate_full', 'build_dough', 'build_sauce', 'build_cheese'];
+    const [plateHidden, dough, sauce, cheese] = elemMapper(buildingBase, elementsPizza, 'pizzas_svg__', 'id');
+    const buildingIngreds = ['[id*="build_mozzarella"]', '[id*="build_prosciutto_a"], [id*="build_prosciutto_b"]', '[id*="build_tomato_small"]', 
+    '[id*="build_rucola_a"], [id*="build_rucola_b"], [id*="build_rucola_c"]', '[id*="build_black_olive_a"], [id*="build_black_olive_b"]'];
+    const [mozzarella, prosciuttos, tomatos, rucola, olives] = elemMapper(buildingIngreds, elementsPizza, '', 'query');
+    
     const buildIngredients = [plateHidden, plateVisible, dough, sauce, cheese, prosciuttos, tomatos, rucola, olives, mozzarella];
     // get pizza types
     const pizzas = ['parma', 'formaggi', 'mare', 'pepperoni', 'hawaii', 'carbonara', 'empty_slicing', 'slice_a', 'slice_b'];
-    const [parma, formaggi, mare, peppe, hawa, carbo, empty, sliceA, sliceB] = elemMapper(pizzas, elementsPizza, 'pizzas_svg__');
+    const [parma, formaggi, mare, peppe, hawa, carbo, empty, sliceA, sliceB] = elemMapper(pizzas, elementsPizza, 'pizzas_svg__', 'id');
     const slicePartsA = new Array(...elementsPizza.querySelectorAll('[id*="slice_a_g"]')).reverse();
     const slicePartsB = new Array(...elementsPizza.querySelectorAll('[id*="slice_b_g"]')).reverse();
     const pizzaTypes = [formaggi, mare, peppe, hawa, carbo, empty];
     // get shards for plate breaking animation
-    const shards = ['shard00', 'shard01', 'shard02', 'shard03', 'shard04', 'shard05', 'shard06', 'shard07', 'shard08', 'shard09', 'vs_shard00', 'vs_shard01','vs_shard02','vs_shard03'];
-    const [shard00, shard01, shard02, shard03, shard04, shard05, shard06, shard07, shard08, shard09, vsShard00, vsShard01, vsShard02, vsShard03] = elemMapper(shards, elementsBroken, 'broken_svg__');
+    const shards = ['shard00', 'shard01', 'shard02', 'shard03', 'shard04', 'shard05', 'shard06', 'shard07', 'shard08', 'shard09', 
+    'vs_shard00', 'vs_shard01','vs_shard02','vs_shard03'];
+    const [shard00, shard01, shard02, shard03, shard04, shard05, shard06, shard07, shard08, shard09, vsShard00, vsShard01, vsShard02, vsShard03] = elemMapper(shards, elementsBroken, 'broken_svg__', 'id');
+    shards.map(el =>  elementsBroken.getElementById(`broken_svg__${el}`));
     // get broken plate captions
     const pizzaSign = elementsBroken.getElementById('broken_svg__pizza_sign');
     const vukainSign = elementsBroken.querySelectorAll('[id*="vuk_sign"]');

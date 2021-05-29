@@ -34,7 +34,7 @@ function App() {
     const inputWrap = document.querySelector('.input_wrapper');
     const resultWrap = document.querySelector('.result_wrapper');
     const skipButton = document.querySelector('.animation_skip');
-    // get inout and results
+    // get input and results
     const input = document.querySelector('.plate_input');
     const result_simple = document.querySelector('.plate_input__result_simple');
     const result = document.querySelector('.show_result');

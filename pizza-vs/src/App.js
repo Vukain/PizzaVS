@@ -21,6 +21,10 @@ function App() {
   const tl = gsap.timeline({ defaults: { ease: 'back.out(1.7)', transformOrigin: 'center' } });
   const resultTl = gsap.timeline({ defaults: { ease: 'back.out(1.7)', transformOrigin: 'center' } });
 
+  const elemMapper = (elemArray, elems, prefix) => { 
+    return (elemArray.map(el =>  elems.getElementById(`${prefix}${el}`)));
+  };
+
   useEffect(() => {
     // get main gsap targets
     const [elementsPlate, elementsPizza] = resultWrapper.current.children;
@@ -43,33 +47,14 @@ function App() {
     const olives = elementsPizza.querySelectorAll('[id*="build_black_olive_a"], [id*="build_black_olive_b"]');
     const buildIngredients = [plateHidden, plateVisible, dough, sauce, cheese, prosciuttos, tomatos, rucola, olives, mozzarella];
     // get pizza types
-    const parma = elementsPizza.getElementById('pizzas_svg__parma');
-    const formaggi = elementsPizza.getElementById('pizzas_svg__formaggi');
-    const mare = elementsPizza.getElementById('pizzas_svg__mare');
-    const peppe = elementsPizza.getElementById('pizzas_svg__pepperoni');
-    const hawa = elementsPizza.getElementById('pizzas_svg__hawaii');
-    const carbo = elementsPizza.getElementById('pizzas_svg__carbonara');
-    const empty = elementsPizza.getElementById('pizzas_svg__empty_slicing');
-    const sliceA = elementsPizza.getElementById('pizzas_svg__slice_a');
-    const sliceB = elementsPizza.getElementById('pizzas_svg__slice_b');
+    const pizzas = ['parma', 'formaggi', 'mare', 'pepperoni', 'hawaii', 'carbonara', 'empty_slicing', 'slice_a', 'slice_b'];
+    const [parma, formaggi, mare, peppe, hawa, carbo, empty, sliceA, sliceB] = elemMapper(pizzas, elementsPizza, 'pizzas_svg__');
     const slicePartsA = new Array(...elementsPizza.querySelectorAll('[id*="slice_a_g"]')).reverse();
     const slicePartsB = new Array(...elementsPizza.querySelectorAll('[id*="slice_b_g"]')).reverse();
     const pizzaTypes = [formaggi, mare, peppe, hawa, carbo, empty];
     // get shards for plate breaking animation
-    const shard00 = elementsBroken.getElementById('broken_svg__shard00');
-    const shard01 = elementsBroken.getElementById('broken_svg__shard01');
-    const shard02 = elementsBroken.getElementById('broken_svg__shard02');
-    const shard03 = elementsBroken.getElementById('broken_svg__shard03');
-    const shard04 = elementsBroken.getElementById('broken_svg__shard04');
-    const shard05 = elementsBroken.getElementById('broken_svg__shard05');
-    const shard06 = elementsBroken.getElementById('broken_svg__shard06');
-    const shard07 = elementsBroken.getElementById('broken_svg__shard07');
-    const shard08 = elementsBroken.getElementById('broken_svg__shard08');
-    const shard09 = elementsBroken.getElementById('broken_svg__shard09');
-    const vsShard00 = elementsBroken.getElementById('broken_svg__vs_shard00');
-    const vsShard01 = elementsBroken.getElementById('broken_svg__vs_shard01');
-    const vsShard02 = elementsBroken.getElementById('broken_svg__vs_shard02');
-    const vsShard03 = elementsBroken.getElementById('broken_svg__vs_shard03');
+    const shards = ['shard00', 'shard01', 'shard02', 'shard03', 'shard04', 'shard05', 'shard06', 'shard07', 'shard08', 'shard09', 'vs_shard00', 'vs_shard01','vs_shard02','vs_shard03'];
+    const [shard00, shard01, shard02, shard03, shard04, shard05, shard06, shard07, shard08, shard09, vsShard00, vsShard01, vsShard02, vsShard03] = elemMapper(shards, elementsBroken, 'broken_svg__');
     // get broken plate captions
     const pizzaSign = elementsBroken.getElementById('broken_svg__pizza_sign');
     const vukainSign = elementsBroken.querySelectorAll('[id*="vuk_sign"]');

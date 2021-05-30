@@ -34,9 +34,9 @@ const PizzaInput = (props) => {
         <div className={`pizza_input pizza_input--${props.name}`}>
 
             <form className='pizza_input__form' action=''>
-                <input title='diameter of one pizza' placeholder='DIAMETER' aria-label={`pizza ${props.name} diameter`} min='1' onBlur={validationHandler} className={`pizza_input__input pizza_input__input--${props.name}`} type="number" onChange={({ target }) => { setPizzaSize(parseInt(target.value)) }} />
-                <input title='number of pizzas' placeholder='COUNT' aria-label={`pizza ${props.name} count`} min='1' onBlur={validationHandler} className={`pizza_input__input pizza_input__input--${props.name}`} type="number" onChange={({ target }) => { setPizzaCount(parseInt(target.value)) }} />
-                <input title='total price for this variant' placeholder='PRICE' aria-label={`pizza ${props.name} price`} min='1' onBlur={validationHandler} className={`pizza_input__input pizza_input__input--${props.name}`} type="number" onChange={({ target }) => { setPizzaPrice(parseInt(target.value)) }} />
+                <input title='diameter of one pizza' placeholder='DIAMETER' aria-label={`pizza ${props.name} diameter`} min='1' onKeyDown={(event) => (event.key === 'e' || event.key === 'E') && event.preventDefault()} onBlur={validationHandler} className={`pizza_input__input pizza_input__input--${props.name}`} type="number" onChange={({ target }) => { setPizzaSize(parseInt(target.value)) }} />
+                <input title='number of pizzas' placeholder='COUNT' aria-label={`pizza ${props.name} count`} min='1' onKeyDown={(event) => (event.key === 'e' || event.key === 'E') && event.preventDefault()} onBlur={validationHandler} className={`pizza_input__input pizza_input__input--${props.name}`} type="number" onChange={({ target }) => { setPizzaCount(parseInt(target.value)) }} />
+                <input title='total price for this variant' placeholder='PRICE' aria-label={`pizza ${props.name} price`} min='1' onKeyDown={(event) => (event.key === 'e' || event.key === 'E') && event.preventDefault()} onBlur={validationHandler} className={`pizza_input__input pizza_input__input--${props.name}`} type="number" onChange={({ target }) => { setPizzaPrice(parseInt(target.value)) }} />
             </form>
 
         </div>);

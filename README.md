@@ -1,4 +1,4 @@
-# PizzaVS
+# Pizza VS
 
 Have You ever wondered what's better to take while ordering pizzas... Three 42cm or maybe two 52cm pizza pies?
 What will get you more food, what will yield better value? You didn't? Ohh... But now you can check it anyway!

@@ -1,3 +1,6 @@
+![pvp](https://user-images.githubusercontent.com/55598879/166116017-ce6e32bd-e654-4d96-b121-71a8a26d010c.jpg)
+
+
 ## Pizza VS
 
 Have You ever wondered what's better to take while ordering pizzas... Three 42cm or maybe two 52cm pizza pies?

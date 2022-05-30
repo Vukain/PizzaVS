@@ -16,8 +16,6 @@
   @media (orientation: portrait)
     width: 80vw
     height: 80vw
-  @media (orientation: landscape) and (max-width: 500px), (max-height: 450px)
-    opacity: 0
 
 .input_wrapper
   position: absolute
@@ -26,7 +24,11 @@
   top: 50%
   left: -80vh
   transform: translateY(-50%)
-  @media (orientation: portrait), (max-width: 500px)
+  @media (max-width: 1200px)
+    left: -90vh
+  @media (max-width: 600px)
+    left: -100vh
+  @media (orientation: portrait)
     width: 80vw
     height: 80vw
     top: -80vw

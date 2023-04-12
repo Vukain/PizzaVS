@@ -2,17 +2,14 @@ import React from 'react';
 
 import './AnimationSkip.sass';
 
-const AnimationSkip = (props) => {
+export const AnimationSkip = ({ timeline }) => {
 
     return (
         <div className='animation_skip'>
             <button className='animation_skip__button'
                 onClick={() => {
-                    props.timeline.progress(1, false);
-                    // props.timeline.currentLabel('slicer');
+                    timeline.progress(1, false);
                 }}>SKIP</button >
         </div>
     );
 };
-
-export default AnimationSkip;

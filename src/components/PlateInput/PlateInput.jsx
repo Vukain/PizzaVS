@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 
-import { AppContext } from '../../AppContext';
-import PizzaInput from '../PizzaInput/PizzaInput';
-
 import './PlateInput.sass';
 
-const PlateInput = (props) => {
+import { AppContext } from '../../AppContext';
+import { PizzaInput } from '../PizzaInput/PizzaInput';
+
+export const PlateInput = () => {
 
     const pizzaData = useContext(AppContext);
 
@@ -23,6 +23,4 @@ const PlateInput = (props) => {
             </div>
             <PizzaInput name='due' />
         </div>);
-}
-
-export default PlateInput;
+};

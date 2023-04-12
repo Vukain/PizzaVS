@@ -4,7 +4,7 @@ import { AppContext } from '../../AppContext';
 
 import './ShowResult.sass';
 
-const ShowResult = (props) => {
+export const ShowResult = ({ timeline }) => {
 
     const pizzaData = useContext(AppContext);
 
@@ -13,9 +13,9 @@ const ShowResult = (props) => {
 
     useEffect(() => {
         if ((unoData.surface > 0 && unoData.value > 0) && (dueData.surface > 0 && dueData.value > 0)) {
-            props.timeline.paused(false)
+            timeline.paused(false)
         };
-    }, [unoData.surface, unoData.value, dueData.surface, dueData.value, props.timeline]);
+    }, [unoData.surface, unoData.value, dueData.surface, dueData.value, timeline]);
 
     return (
         <div className='show_result show_result--raw_data'>
@@ -27,7 +27,5 @@ const ShowResult = (props) => {
             <p className='show_result__data'>Surface: {dueData.surface.toFixed(2)} cm<sup>2</sup></p>
             <p className='show_result__data'>Value: {dueData.value.toFixed(2)} cm<sup>2</sup>/$</p>
         </div>
-    )
+    );
 };
-
-export default ShowResult;

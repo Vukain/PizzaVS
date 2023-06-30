@@ -4,9 +4,9 @@ import gsap from 'gsap';
 import './App.sass';
 
 // import via ReactComponent got a problem with SVGO
-import { BrokenImg } from './media';
-import { PizzaImg } from './media';
-import { PlateImg } from './media';
+import { ReactComponent as BrokenImg } from './media/broken.svg';
+import { ReactComponent as PizzaImg } from './media/pizzas.svg';
+import { ReactComponent as PlateImg } from './media/plate.svg';
 
 import { AppProvider } from './AppContext';
 import { AnimationSkip } from './components/AnimationSkip/AnimationSkip';
@@ -14,6 +14,10 @@ import { PlateInput } from './components/PlateInput/PlateInput';
 import { ShowResult } from './components/ShowResult/ShowResult';
 import { useGsapIntroAnimation } from './hooks/useGsapIntroAnimation';
 import { useGsapResultAnimation } from './hooks/useGsapResultAnimation';
+
+gsap.config({
+  force3D: false,
+});
 
 export const App = () => {
   const tl = gsap.timeline({ defaults: { ease: 'back.out(1.7)', transformOrigin: 'center' } });

@@ -78,6 +78,7 @@ export const useGsapIntroAnimation = (timeline) => {
       vsShard02,
       vsShard03,
     ] = elemMapper(shards, elementsBroken, 'broken_svg__', 'id');
+
     // get broken plate captions
     const pizzaSign = elementsBroken.getElementById('broken_svg__pizza_sign');
     const vukainSign = elementsBroken.querySelectorAll('[id*="vuk_sign"]');
@@ -295,11 +296,11 @@ export const useGsapIntroAnimation = (timeline) => {
 
     // plate breaking, making input elements visible, hiding skip button
     timeline
-      .to(shard00, { duration: 0.3, delay: -0.3, xPercent: '3', yPercent: '15', transform: 'rotateZ(2deg)' })
-      .to(shard01, { duration: 0.3, delay: -0.3, xPercent: '40', yPercent: '90', transform: 'rotateZ(4deg)' })
+      .to(shard00, { duration: 0.3, delay: -0.3, xPercent: '3', yPercent: '15', rotation: 2 })
+      .to(shard01, { duration: 0.3, delay: -0.3, xPercent: '40', yPercent: '90', rotation: 4 })
       .to(shard02, { duration: 0.3, delay: -0.3, xPercent: '24', yPercent: '30' })
       .to(shard03, { duration: 0.3, delay: -0.3, xPercent: '20', yPercent: '30' })
-      .to(shard04, { duration: 0.3, delay: -0.3, xPercent: '4', yPercent: '12', transform: 'rotateZ(-2deg)' })
+      .to(shard04, { duration: 0.3, delay: -0.3, xPercent: '4', yPercent: '12', rotation: -2 })
       .to(shard05, { duration: 0.3, delay: -0.3, xPercent: '19', yPercent: '18' })
       .to(shard06, { duration: 0.3, delay: -0.3, xPercent: '15' })
       .to(shard07, { duration: 0.3, delay: -0.3, xPercent: '-8', yPercent: '20' })
@@ -308,7 +309,7 @@ export const useGsapIntroAnimation = (timeline) => {
       .to(vsShard00, { duration: 0.3, delay: -0.3, xPercent: '62', yPercent: '-132' })
       .to(vsShard01, { duration: 0.3, delay: -0.3, xPercent: '18', yPercent: '-102' })
       .to(vsShard02, { duration: 0.3, delay: -0.3, xPercent: '46', yPercent: '-168' })
-      .to(vsShard03, { duration: 0.3, delay: -0.3, xPercent: '-16', yPercent: '-160', transform: 'rotateZ(-8deg)' })
+      .to(vsShard03, { duration: 0.3, delay: -0.3, xPercent: '-16', yPercent: '-160', rotation: -8 })
       .to([pizzaSign, vukainSign], { duration: 0.3, autoAlpha: 1 })
       .to([input, variantUno, variantDue], { duration: 0.3, delay: -0.3, autoAlpha: 1 })
       .to(skipButton, { autoAlpha: 0, delay: -0.3 });

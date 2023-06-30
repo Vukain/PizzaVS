@@ -1,16 +1,16 @@
-![pvp](https://user-images.githubusercontent.com/55598879/166116017-ce6e32bd-e654-4d96-b121-71a8a26d010c.jpg)
+![port](https://user-images.githubusercontent.com/55598879/184479664-4b386351-8755-4f3c-9557-cac544db69f6.png)
 
+## PortfolioV2
 
-## Pizza VS
-
-Have You ever wondered what's better to take while ordering pizzas... Three 42cm or maybe two 52cm pizza pies?
-What will get You more food, what will yield better value? You didn't? Ohh... But now You can check it anyway!
+A new portfolio version, based on custom vector graphics paired with scroll animations.
 
 ## Features
 
-App calculates surface and value per buck of two different order options.
-Simply enter a diameter of pizza, number of pizzas and total price for each variant and get the answer.
-React with SASS, plus some animations made with GSAP.
+- built with React and Typescript, vector graphics created in Illustrator, animations made via GSAP
+- initial language is browser based, but it can be changed in the footer (english / polish)
+- supports prefers-reduced-motion, tab navigation and direct section linking
+- most animations are connected to scroll, tho contact section features parallax effect based on cursor movement
 
 ## Live version
-https://vukain.github.io/PizzaVS/
+
+https://portfolio-v2-vukain.vercel.app/
